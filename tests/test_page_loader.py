@@ -14,6 +14,6 @@ vars_and_results = [('https://ru.hexlet.io/projects/51/members/12259',
 
 @pytest.mark.parametrize('url,expected', vars_and_results)
 def test_page_loader(url, expected):
-    with tempfile.TemporaryDirectory(dir='tmp/') as tmpdir:
+    with tempfile.TemporaryDirectory(dir='./tests/tmp/') as tmpdir:
         expected_path = tmpdir + expected
         assert download(url, tmpdir) == expected_path

@@ -7,14 +7,15 @@ test:
 lint:
 	poetry run flake8 page_loader
 
+package-install:
+	pip install --user dist/*.whl
+
+build:
+	poetry build
+
 selfcheck:
 	poetry check
 
 check: selfcheck test lint
 
 .PHONY: install test lint selfcheck check build
-
-build: poetry build
-
-package-install:
-    pip install --user dist/*.whl
