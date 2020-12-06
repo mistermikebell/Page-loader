@@ -15,3 +15,6 @@ check: selfcheck test lint
 .PHONY: install test lint selfcheck check build
 
 build: poetry build
+
+package-install:
+    pip install --user dist/*.whl
