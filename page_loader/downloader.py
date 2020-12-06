@@ -1,6 +1,7 @@
 import requests
 
 from page_loader.name_builder import build_file_name
+from page_loader.saver import create_file
 
 
 def stringify(path):
@@ -14,6 +15,5 @@ def download(url, path):
     directory_path = stringify(path)
     file_name = build_file_name(url)
     file_path = "".join([directory_path, '/', file_name])
-    with open(file_path, 'w+') as content_file:
-        content_file.write(call.text)
+    create_file(file_path, call.text)
     return file_path
