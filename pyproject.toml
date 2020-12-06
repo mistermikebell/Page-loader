@@ -3,11 +3,26 @@ name = "hexlet_code"
 version = "0.1.0"
 description = ""
 authors = ["mistermikebell <jokerbell7@gmail.com>"]
+packages = [
+  { include = "page_loader" },
+]
+classifiers = [
+ "Development Status :: 3 - Alpha",
+ "Framework :: Flake8",
+ "Intended Audience :: Education",
+ "License :: Free For Educational Use",
+ "Natural Language :: English",
+ "Programming Language :: Python :: 3.8"
+]
+
+[tool.poetry.urls]
+repository = "https://github.com/mistermikebell/python-project-lvl3"
 
 [tool.poetry.dependencies]
 python = "^3.8"
 
 [tool.poetry.dev-dependencies]
+flake8 = "^3.8.4"
 
 [build-system]
 requires = ["poetry>=0.12"]
