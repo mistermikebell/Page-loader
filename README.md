@@ -9,3 +9,8 @@ Download a webpage content and save it as an html file.
 To save content as an html file you only need to specify website after <b>page_loader</b> command . You may also specify a directory where you want to save the file. By default the file will be downloaded in current directory.
 
 [![asciicast](https://asciinema.org/a/ahZmTuZWX4XuNw8teubwlTagw.svg)](https://asciinema.org/a/ahZmTuZWX4XuNw8teubwlTagw)
+
+
+### 2. Images of the website will have be downloaded on your local machine as well.
+
+[![asciicast](https://asciinema.org/a/XJwtp0DfqiWgU8db32QZdKi1b.svg)](https://asciinema.org/a/XJwtp0DfqiWgU8db32QZdKi1b)

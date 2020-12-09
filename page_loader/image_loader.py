@@ -44,10 +44,10 @@ def load(url, content, path):
     soup = BeautifulSoup(content, features="html.parser")
     for img in soup.find_all('img'):
         image = img['src']
-        print(img)
         if not is_absolute(image):
             image = '{}://{}/{}'.format(parsed.scheme, parsed.netloc, image)
         img_name, img_extension = get_name_and_extension(image)
+        print(image)
         if img_extension not in ['.jpg', '.png']:
             continue
         img_path = f'{directory}/{img_name}{img_extension}'
