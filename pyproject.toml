@@ -20,13 +20,13 @@ repository = "https://github.com/mistermikebell/python-project-lvl3"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-pytest-cov = "^2.10.1"
-requests = "^2.25.0"
 BeautifulSoup4 = "^4.9.3"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^3.8.4"
 pytest-cov = "^2.10.1"
+requests = "^2.25.0"
+BeautifulSoup4 = "^4.9.3"
 
 [tool.poetry.scripts]
 page_loader = "page_loader.scripts.page_loader:main"
