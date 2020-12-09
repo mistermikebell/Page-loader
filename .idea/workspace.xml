@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="caeccd5f-053b-4fbb-adb4-2915a8f42041" name="Default Changelist" comment="task 2">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page_loader/image_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_loader/image_loader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-federalreserve-gov-aboutthefed-contact-us-topics-htm.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-federalreserve-gov-aboutthefed-contact-us-topics-htm_files/www-federalreserve-gov-OpenGov-402x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-federalreserve-gov-aboutthefed-contact-us-topics-htm_files/www-federalreserve-gov-USAGov-402x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_page_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_page_loader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_parser.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +38,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests/fixtures" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/tests/fixtures" />
     </key>
   </component>
@@ -90,10 +98,27 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="pytest for test_page_loader.test_image_reg" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="python-project-lvl3" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_page_loader.test_image_reg&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python tests.pytest for test_page_loader.test_image_loader" />
         <item itemvalue="Python.test_parser" />
+        <item itemvalue="Python tests.pytest for test_page_loader.test_image_reg" />
         <item itemvalue="Python tests.pytest for test_page_loader.test_image_loader_regular" />
       </list>
     </recent_temporary>
