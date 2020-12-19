@@ -48,7 +48,8 @@ def load(url, content, path):
 
     parsed = urlparse(url)
     soup = BeautifulSoup(content, features="html.parser")
-    bar = progressbar.ProgressBar(max_value=progressbar.UnknownLength, redirect_stdout=True)
+    bar = progressbar.ProgressBar(max_value=progressbar.UnknownLength,
+                                  redirect_stdout=True)
     for tag in soup.find_all(['img', 'link', 'script']):
         if tag.get('src'):
             source = tag['src']
@@ -70,7 +71,7 @@ def load(url, content, path):
         try:
             content = requests.get(source, stream=True)
         except requests.exceptions.ConnectionError:
-            logger.error(f'Cannot open resource on {source}. Connection status is'
+            logger.error(f'Cannot open {source}. Connection status is'
                          f'{content.status_code}')
         with open(src_path, 'wb') as src_file:
             shutil.copyfileobj(content.raw, src_file)

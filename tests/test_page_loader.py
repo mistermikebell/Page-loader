@@ -21,9 +21,9 @@ def test_page_loader(url, expected):
         assert load_website(url, tmpdir) == expected_path
 
 
-url = 'https://www.federalreserve.gov/aboutthefed/contact-us-topics.htm'
-html_path = 'fixtures/www-federalreserve-gov-aboutthefed-contact-us-topics-htm.html'  # noqa: E501
-files_path = 'fixtures/www-federalreserve-gov-aboutthefed-contact-us-topics-htm_files/'  # noqa: E501
+url = 'https://www.morganstanley.com/'
+html_path = 'fixtures/www-morganstanley-com-.html'  # noqa: E501
+files_path = 'fixtures/www-morganstanley-com-_files/'  # noqa: E501
 
 
 def open_and_read(path):

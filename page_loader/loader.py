@@ -6,8 +6,9 @@ import sys
 
 from page_loader import formatter
 from page_loader import content
-from page_loader import setup
+from page_loader.setup import set_logging
 
+set_logging()
 logger = logging.getLogger(__name__)
 
 printing_handler = logging.StreamHandler(sys.stdout)
