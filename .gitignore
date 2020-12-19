@@ -10,4 +10,3 @@ dist/
 .coverage
 coverage.xml
 .idea
-/tests/tmp/
