@@ -1,26 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="caeccd5f-053b-4fbb-adb4-2915a8f42041" name="Default Changelist" comment="task 6">
+    <list default="true" id="caeccd5f-053b-4fbb-adb4-2915a8f42041" name="Default Changelist" comment="refactor tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page_loader/content.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_loader/content.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page_loader/loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_loader/loader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page_loader/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_loader/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-federalreserve-gov-aboutthefed-contact-us-topics-htm.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-federalreserve-gov-aboutthefed-contact-us-topics-htm_files/www-federalreserve-gov-OpenGov-402x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-federalreserve-gov-aboutthefed-contact-us-topics-htm_files/www-federalreserve-gov-USAGov-402x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-federalreserve-gov-aboutthefed-contact-us-topics-htm_files/www-federalreserve-gov-angular-min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-federalreserve-gov-aboutthefed-contact-us-topics-htm_files/www-federalreserve-gov-app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-federalreserve-gov-aboutthefed-contact-us-topics-htm_files/www-federalreserve-gov-bootstrap-min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-federalreserve-gov-aboutthefed-contact-us-topics-htm_files/www-federalreserve-gov-ekko-lightbox-min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-federalreserve-gov-aboutthefed-contact-us-topics-htm_files/www-federalreserve-gov-grunticon-loader.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-federalreserve-gov-aboutthefed-contact-us-topics-htm_files/www-federalreserve-gov-jquery1-11-1-min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-federalreserve-gov-aboutthefed-contact-us-topics-htm_files/www-federalreserve-gov-modal.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-federalreserve-gov-aboutthefed-contact-us-topics-htm_files/www-federalreserve-gov-modernizr-latest.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-federalreserve-gov-aboutthefed-contact-us-topics-htm_files/www-federalreserve-gov-scripts.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-federalreserve-gov-aboutthefed-contact-us-topics-htm_files/www-federalreserve-gov-sticky-tables.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-federalreserve-gov-aboutthefed-contact-us-topics-htm_files/www-federalreserve-gov-t4-nav-controller.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-federalreserve-gov-aboutthefed-contact-us-topics-htm_files/www-federalreserve-gov-track_downloads.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_page_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_page_loader.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -181,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608395972988</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="refactor tests">
+      <created>1608403146742</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1608403146742</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -199,6 +188,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="task 2" />
     <MESSAGE value="task 6" />
-    <option name="LAST_COMMIT_MESSAGE" value="task 6" />
+    <MESSAGE value="refactor tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor tests" />
   </component>
 </project>
