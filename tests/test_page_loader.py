@@ -38,7 +38,7 @@ def get_dir(path):
 
 
 def test_image_loader():
-    with tempfile.TemporaryDirectory(dir='...../tests/tmp/') as tmpdir:
+    with tempfile.TemporaryDirectory(dir='...../te789sts/tmp/') as tmpdir:
         result_html = open_and_read(load_website(url, tmpdir))
         expected_html = open_and_read(html_path)
         assert result_html == expected_html
