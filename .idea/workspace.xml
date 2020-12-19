@@ -1,26 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="caeccd5f-053b-4fbb-adb4-2915a8f42041" name="Default Changelist" comment="refactor tests v8">
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-clientlib-base-min-ACSHASHbd2ce78524d6155ecf9130f313b614b3.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-clientlib-base-min-ACSHASHd974c4b24aea743afc99a6528a2f4c4a.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-clientlib-dependencies-min-ACSHASH8e23e5ad8c1b5c588cca8d71df0aef0b.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-extrawide_3x1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-favicon-128.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-favicon-16x16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-favicon-196x196.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-favicon-32x32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-favicon-96x96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-logo-black.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-thumbnail-breaking-the-mold-square.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-thumbnail-coronavirus-square.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-thumbnail-market-volatility-square.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-thumbnail-our-culture-square.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-thumbnail-scale-sustainable-square.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-thumbnail-tech-innovator-square.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-wide_16x9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-wwd_16x9.jpg" afterDir="false" />
+    <list default="true" id="caeccd5f-053b-4fbb-adb4-2915a8f42041" name="Default Changelist" comment="refactor tests v9">
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608406268627</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="refactor tests v9">
+      <created>1608407597230</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1608407597230</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -262,6 +251,7 @@
     <MESSAGE value="refactor tests v6" />
     <MESSAGE value="refactor tests v7" />
     <MESSAGE value="refactor tests v8" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor tests v8" />
+    <MESSAGE value="refactor tests v9" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor tests v9" />
   </component>
 </project>
