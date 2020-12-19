@@ -29,7 +29,7 @@ def stringify(path):
     return path.strip('/')
 
 
-def load_website(url, path):
+def download(url, path):
     logger.debug("Send GET request")
     logger.info(f'\nConnecting to {url} ...\n')
     try:
