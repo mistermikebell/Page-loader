@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="caeccd5f-053b-4fbb-adb4-2915a8f42041" name="Default Changelist" comment="task 2">
+      <change afterPath="$PROJECT_DIR$/page_loader/setup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page_loader/image_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_loader/image_loader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-federalreserve-gov-aboutthefed-contact-us-topics-htm.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-federalreserve-gov-aboutthefed-contact-us-topics-htm_files/www-federalreserve-gov-OpenGov-402x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-federalreserve-gov-aboutthefed-contact-us-topics-htm_files/www-federalreserve-gov-USAGov-402x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/page_loader/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_loader/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page_loader/image_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_loader/content.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page_loader/loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_loader/loader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page_loader/scripts/page_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_loader/scripts/page_loader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page_loader/urlformatter.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_loader/formatter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/poetry.lock" beforeDir="false" afterPath="$PROJECT_DIR$/poetry.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_page_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_page_loader.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_parser.py" afterDir="false" />
     </list>
@@ -44,7 +48,7 @@
       <recent name="$PROJECT_DIR$/tests/fixtures" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.pytest for test_page_loader.test_image_loader">
+  <component name="RunManager" selected="Python.test_parser">
     <configuration name="test_parser" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="python-project-lvl3" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -116,8 +120,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.pytest for test_page_loader.test_image_loader" />
         <item itemvalue="Python.test_parser" />
+        <item itemvalue="Python tests.pytest for test_page_loader.test_image_loader" />
         <item itemvalue="Python tests.pytest for test_page_loader.test_image_reg" />
         <item itemvalue="Python tests.pytest for test_page_loader.test_image_loader_regular" />
       </list>

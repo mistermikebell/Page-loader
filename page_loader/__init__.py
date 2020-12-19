@@ -2,6 +2,6 @@
 
 """Download webpage content and save it as a file."""
 
-from page_loader.loader import download
+from page_loader.loader import load_website
 
-__all__ = ['download']
+__all__ = ['load_website']

@@ -4,7 +4,7 @@ import pytest
 
 import tempfile
 
-from page_loader import download
+from page_loader import load_website
 
 vars_and_results = [('https://ru.hexlet.io/projects/51/members/12259',
                      '/ru-hexlet-io-projects-51-members-12259.html'),
@@ -18,7 +18,7 @@ vars_and_results = [('https://ru.hexlet.io/projects/51/members/12259',
 def test_page_loader(url, expected):
     with tempfile.TemporaryDirectory(dir='../tests/tmp/') as tmpdir:
         expected_path = tmpdir + expected
-        assert download(url, tmpdir) == expected_path
+        assert load_website(url, tmpdir) == expected_path
 
 
 url = 'https://www.federalreserve.gov/aboutthefed/contact-us-topics.htm'
@@ -39,7 +39,7 @@ def get_dir(path):
 
 def test_image_loader():
     with tempfile.TemporaryDirectory(dir='../tests/tmp/') as tmpdir:
-        result_html = open_and_read(download(url, tmpdir))
+        result_html = open_and_read(load_website(url, tmpdir))
         expected_html = open_and_read(html_path)
         assert result_html == expected_html
         result_dir = get_dir(tmpdir)
