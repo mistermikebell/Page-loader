@@ -16,7 +16,7 @@ vars_and_results = [('https://ru.hexlet.io/projects/51/members/12259',
 
 @pytest.mark.parametrize('url,expected', vars_and_results)
 def test_page_loader(url, expected):
-    with tempfile.TemporaryDirectory(dir='../tests/tmp/') as tmpdir:
+    with tempfile.TemporaryDirectory(dir='./tests/tmp/') as tmpdir:
         expected_path = tmpdir + expected
         assert load_website(url, tmpdir) == expected_path
 
@@ -38,7 +38,7 @@ def get_dir(path):
 
 
 def test_image_loader():
-    with tempfile.TemporaryDirectory(dir='...../te789sts/tmp/') as tmpdir:
+    with tempfile.TemporaryDirectory(dir='./tests/tmp/') as tmpdir:
         result_html = open_and_read(load_website(url, tmpdir))
         expected_html = open_and_read(html_path)
         assert result_html == expected_html
