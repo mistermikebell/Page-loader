@@ -22,8 +22,8 @@ def test_page_loader(url, expected):
 
 
 url = 'https://www.morganstanley.com/'
-html_path = 'fixtures/www-morganstanley-com-.html'  # noqa: E501
-files_path = 'fixtures/www-morganstanley-com-_files/'  # noqa: E501
+html_path = './tests/fixtures/www-morganstanley-com-.html'  # noqa: E501
+files_path = './tests/fixtures/www-morganstanley-com-_files/'  # noqa: E501
 
 
 def open_and_read(path):
