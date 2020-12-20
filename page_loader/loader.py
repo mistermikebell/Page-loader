@@ -36,7 +36,6 @@ def download(url, path):
     logger.info(f'\nConnecting to {url} ...\n')
     try:
         call = requests.get(url)
-        print(call.status_code)
     except ConnectionError:
         logger.error(f'Cannot open resource on {url}')
         return 0
@@ -53,6 +52,8 @@ def download(url, path):
     except ConnectionRefusedError:
         logger.error(f'Cannot open resource on {url} 2')
         return 500
+    except requests.exceptions.HTTPError as httperror:
+        raise httperror
     directory = stringify(path)
     html_file_name = formatter.format(url)
     logger.info('Connection established\nStarting to load content\n')

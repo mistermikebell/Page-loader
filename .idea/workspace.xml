@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="caeccd5f-053b-4fbb-adb4-2915a8f42041" name="Default Changelist" comment="change load_website name">
+    <list default="true" id="caeccd5f-053b-4fbb-adb4-2915a8f42041" name="Default Changelist" comment="adding exceptions in load">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page_loader/loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_loader/loader.py" afterDir="false" />
     </list>
@@ -240,7 +240,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608409534284</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="adding exceptions in load">
+      <created>1608481144777</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1608481144777</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -269,6 +276,7 @@
     <MESSAGE value="refactor tests v9" />
     <MESSAGE value="change dependencies" />
     <MESSAGE value="change load_website name" />
-    <option name="LAST_COMMIT_MESSAGE" value="change load_website name" />
+    <MESSAGE value="adding exceptions in load" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding exceptions in load" />
   </component>
 </project>
