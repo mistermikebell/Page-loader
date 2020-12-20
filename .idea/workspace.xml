@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="caeccd5f-053b-4fbb-adb4-2915a8f42041" name="Default Changelist" comment="change dependencies" />
+    <list default="true" id="caeccd5f-053b-4fbb-adb4-2915a8f42041" name="Default Changelist" comment="change load_website name">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page_loader/loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_loader/loader.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,7 +39,7 @@
       <recent name="$PROJECT_DIR$/tests/fixtures" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.pytest for test_page_loader.test_image_loader">
+  <component name="RunManager" selected="Python.test_loader">
     <configuration name="test_loader" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="python-project-lvl3" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -129,8 +132,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.pytest for test_page_loader.test_image_loader" />
         <item itemvalue="Python.test_loader" />
+        <item itemvalue="Python tests.pytest for test_page_loader.test_image_loader" />
         <item itemvalue="Python.test_parser" />
         <item itemvalue="Python tests.pytest for test_page_loader.test_image_reg" />
         <item itemvalue="Python tests.pytest for test_page_loader.test_image_loader_regular" />
@@ -230,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608409112320</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="change load_website name">
+      <created>1608409534284</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1608409534284</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -258,6 +268,7 @@
     <MESSAGE value="refactor tests v8" />
     <MESSAGE value="refactor tests v9" />
     <MESSAGE value="change dependencies" />
-    <option name="LAST_COMMIT_MESSAGE" value="change dependencies" />
+    <MESSAGE value="change load_website name" />
+    <option name="LAST_COMMIT_MESSAGE" value="change load_website name" />
   </component>
 </project>

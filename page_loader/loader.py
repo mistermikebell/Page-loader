@@ -4,6 +4,8 @@ import requests
 
 import sys
 
+import urllib3.exceptions as urexc
+
 from page_loader import formatter
 from page_loader import content
 from page_loader.setup import set_logging
@@ -34,9 +36,23 @@ def download(url, path):
     logger.info(f'\nConnecting to {url} ...\n')
     try:
         call = requests.get(url)
+        print(call.status_code)
+    except ConnectionError:
+        logger.error(f'Cannot open resource on {url}')
+        return 0
+    except urexc.MaxRetryError:
+        logger.error(f'Cannot open resource on {url} 5')
+        return 0
     except requests.exceptions.ConnectionError:
-        logger.error(f'Cannot open resource on {url}. Connection status is'
-                     f'{call.status_code}')
+        logger.error(f'Cannot open resource on {url}\n'
+                     f'[Erno 111] Connection refused')
+        return 0
+    except urexc.NewConnectionError:
+        logger.error(f'Cannot open resource on {url} 3')
+        return 500
+    except ConnectionRefusedError:
+        logger.error(f'Cannot open resource on {url} 2')
+        return 500
     directory = stringify(path)
     html_file_name = formatter.format(url)
     logger.info('Connection established\nStarting to load content\n')
