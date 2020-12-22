@@ -1,11 +1,9 @@
 import logging
-
+import os
 import requests
-
 import sys
 
 import urllib3.exceptions as urexc
-
 from page_loader import formatter
 from page_loader import content
 from page_loader.setup import set_logging
@@ -61,6 +59,7 @@ def download(url, path):
         raise error
         sys.exit(0)
     directory = stringify(path)
+    os.makedirs(path, exist_ok=True)
     html_file_name = formatter.format(url)
     logger.info('Connection established\nStarting to load content\n')
     changed_src_html = content.load(url, call.content, directory)
