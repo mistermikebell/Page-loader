@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="caeccd5f-053b-4fbb-adb4-2915a8f42041" name="Default Changelist" comment="adding exceptions in load v2" />
+    <list default="true" id="caeccd5f-053b-4fbb-adb4-2915a8f42041" name="Default Changelist" comment="adding sys exit">
+      <change beforePath="$PROJECT_DIR$/page_loader/loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_loader/loader.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -251,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608482362906</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="adding sys exit">
+      <created>1608664751550</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1608664751550</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -282,6 +291,7 @@
     <MESSAGE value="change load_website name" />
     <MESSAGE value="adding exceptions in load" />
     <MESSAGE value="adding exceptions in load v2" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding exceptions in load v2" />
+    <MESSAGE value="adding sys exit" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding sys exit" />
   </component>
 </project>

@@ -36,24 +36,29 @@ def download(url, path):
     logger.info(f'\nConnecting to {url} ...\n')
     try:
         call = requests.get(url)
-    except ConnectionError:
+    except ConnectionError as error:
+        raise error
         logger.error(f'Cannot open resource on {url}')
         sys.exit(0)
-    except urexc.MaxRetryError:
+    except urexc.MaxRetryError as error:
+        raise error
         logger.error(f'Cannot open resource on {url} 5')
         sys.exit(0)
-    except requests.exceptions.ConnectionError:
+    except requests.exceptions.ConnectionError as error:
+        raise error
         logger.error(f'Cannot open resource on {url}\n'
                      f'[Erno 111] Connection refused')
         sys.exit(0)
-    except urexc.NewConnectionError:
+    except urexc.NewConnectionError as error:
+        raise error
         logger.error(f'Cannot open resource on {url} 3')
         sys.exit(0)
-    except ConnectionRefusedError:
+    except ConnectionRefusedError as error:
+        raise error
         logger.error(f'Cannot open resource on {url} 2')
         sys.exit(0)
-    except requests.exceptions.HTTPError:
-
+    except requests.exceptions.HTTPError as error:
+        raise error
         sys.exit(0)
     directory = stringify(path)
     html_file_name = formatter.format(url)
