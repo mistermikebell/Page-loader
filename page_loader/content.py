@@ -58,6 +58,7 @@ def load(url, content, path):
         else:
             continue
         if not is_absolute(source):
+            source.strip('/')
             source = '{}://{}/{}'.format(parsed.scheme, parsed.netloc, source)
         else:
             continue

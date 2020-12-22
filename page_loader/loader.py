@@ -30,6 +30,10 @@ def stringify(path):
 
 
 def download(url, path):
+    if not os.path.exists(path):
+        raise OSError
+        logger.error(f'{path} doesn\'t exists')
+        sys.exit()
     logger.debug("Send GET request")
     logger.info(f'\nConnecting to {url} ...\n')
     try:
@@ -37,29 +41,28 @@ def download(url, path):
     except ConnectionError as error:
         raise error
         logger.error(f'Cannot open resource on {url}')
-        sys.exit(0)
+        sys.exit()
     except urexc.MaxRetryError as error:
         raise error
         logger.error(f'Cannot open resource on {url} 5')
-        sys.exit(0)
+        sys.exit()
     except requests.exceptions.ConnectionError as error:
         raise error
         logger.error(f'Cannot open resource on {url}\n'
                      f'[Erno 111] Connection refused')
-        sys.exit(0)
+        sys.exit()
     except urexc.NewConnectionError as error:
         raise error
         logger.error(f'Cannot open resource on {url} 3')
-        sys.exit(0)
+        sys.exit()
     except ConnectionRefusedError as error:
         raise error
         logger.error(f'Cannot open resource on {url} 2')
-        sys.exit(0)
+        sys.exit()
     except requests.exceptions.HTTPError as error:
         raise error
-        sys.exit(0)
+        sys.exit()
     directory = stringify(path)
-    os.makedirs(path, exist_ok=True)
     html_file_name = formatter.format(url)
     logger.info('Connection established\nStarting to load content\n')
     changed_src_html = content.load(url, call.content, directory)
