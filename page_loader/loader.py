@@ -33,7 +33,6 @@ def download(url, path):
     if not os.path.exists(path):
         raise OSError
         logger.error(f'{path} doesn\'t exists')
-        sys.exit()
     logger.debug("Send GET request")
     logger.info(f'\nConnecting to {url} ...\n')
     try:
@@ -41,32 +40,30 @@ def download(url, path):
     except ConnectionError as error:
         raise error
         logger.error(f'Cannot open resource on {url}')
-        sys.exit()
     except urexc.MaxRetryError as error:
         raise error
         logger.error(f'Cannot open resource on {url} 5')
-        sys.exit()
     except requests.exceptions.ConnectionError as error:
         raise error
         logger.error(f'Cannot open resource on {url}\n'
                      f'[Erno 111] Connection refused')
-        sys.exit()
     except urexc.NewConnectionError as error:
         raise error
         logger.error(f'Cannot open resource on {url} 3')
-        sys.exit()
     except ConnectionRefusedError as error:
         raise error
         logger.error(f'Cannot open resource on {url} 2')
-        sys.exit()
-    except requests.exceptions.HTTPError as error:
-        raise error
-        sys.exit()
+    except requests.exceptions.HTTPError:
+        raise call.raise_for_status()
     directory = stringify(path)
     html_file_name = formatter.format(url)
     logger.info('Connection established\nStarting to load content\n')
     changed_src_html = content.load(url, call.content, directory)
     html_file_path = f'{directory}/{html_file_name}.html'
-    with open(html_file_path, 'w+') as content_file:
-        content_file.write(changed_src_html)
+    try:
+        with open(html_file_path, 'w+') as content_file:
+            content_file.write(changed_src_html)
+    except PermissionError:
+        logger.error(f'Cannot create file in {directory}')
+        raise PermissionError
     return html_file_path
