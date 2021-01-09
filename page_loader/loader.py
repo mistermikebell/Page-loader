@@ -52,7 +52,7 @@ def download(url, path):
         logger.error(f'Cannot open resource on {url} 3')
     except ConnectionRefusedError as error:
         raise error
-        logger.error(f'Cannot open resource on {url} 2')
+        logger.error(f'Cannot open resource on {url} 1')
     except requests.exceptions.HTTPError:
         raise call.raise_for_status()
     directory = stringify(path)
