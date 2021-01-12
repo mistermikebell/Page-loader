@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="caeccd5f-053b-4fbb-adb4-2915a8f42041" name="Default Changelist" comment="refactor tests v10" />
+    <list default="true" id="caeccd5f-053b-4fbb-adb4-2915a8f42041" name="Default Changelist" comment="refactor tests v11">
+      <change beforePath="$PROJECT_DIR$/tests/test_page_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_page_loader.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,7 +38,7 @@
       <recent name="$PROJECT_DIR$/tests/fixtures" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.pytest for test_page_loader.test_page_loader">
+  <component name="RunManager" selected="Python tests.pytest for test_page_loader.test_image_loader">
     <configuration name="test_loader" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="python-project-lvl3" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -129,8 +131,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.pytest for test_page_loader.test_page_loader" />
         <item itemvalue="Python tests.pytest for test_page_loader.test_image_loader" />
+        <item itemvalue="Python tests.pytest for test_page_loader.test_page_loader" />
         <item itemvalue="Python.test_loader" />
         <item itemvalue="Python.test_parser" />
         <item itemvalue="Python tests.pytest for test_page_loader.test_image_reg" />
@@ -293,7 +295,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610444775984</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="refactor tests v11">
+      <created>1610444933345</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1610444933345</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -330,6 +339,7 @@
     <MESSAGE value="added exception to nonexisting paths" />
     <MESSAGE value="edit html file name" />
     <MESSAGE value="refactor tests v10" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor tests v10" />
+    <MESSAGE value="refactor tests v11" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor tests v11" />
   </component>
 </project>

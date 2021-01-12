@@ -64,7 +64,6 @@ def download(url, path):
     logger.info('Connection established\nStarting to load content\n')
     changed_src_html = content.load(url, call.content, directory)
     html_file_path = f'{directory}/{html_file_name.strip("-")}.html'
-    print(html_file_path)
     try:
         with open(html_file_path, 'w+') as content_file:
             content_file.write(changed_src_html)
