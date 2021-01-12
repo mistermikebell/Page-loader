@@ -11,12 +11,12 @@ vars_and_results = [('https://ru.hexlet.io/projects/51/members/12259',
                     ('https://docs.python.org/3/library/urllib.parse.html',
                      '/docs-python-org-3-library-urllib-parse-html.html'),
                     ('https://translate.google.com/?hl=ru&sl=en&tl=uk&text=hello&op=translate',  # noqa: E501
-                     '/translate-google-com-.html')]
+                     '/translate-google-com.html')]
 
 
 @pytest.mark.parametrize('url,expected', vars_and_results)
 def test_page_loader(url, expected):
-    with tempfile.TemporaryDirectory(dir='./tests/') as tmpdir:
+    with tempfile.TemporaryDirectory(dir='../tests/') as tmpdir:
         expected_path = tmpdir + expected
         assert download(url, tmpdir) == expected_path
 
@@ -38,7 +38,7 @@ def get_dir(path):
 
 
 def test_image_loader():
-    with tempfile.TemporaryDirectory(dir='../tests/') as tmpdir:
+    with tempfile.TemporaryDirectory(dir='./tests/') as tmpdir:
         result_html = open_and_read(download(url, tmpdir))
         expected_html = open_and_read(html_path)
         assert result_html == expected_html

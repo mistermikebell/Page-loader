@@ -65,7 +65,7 @@
       <recent name="$PROJECT_DIR$/tests/fixtures" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.test_loader">
+  <component name="RunManager" selected="Python tests.pytest for test_page_loader.test_page_loader">
     <configuration name="test_loader" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="python-project-lvl3" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -158,9 +158,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test_loader" />
-        <item itemvalue="Python tests.pytest for test_page_loader.test_image_loader" />
         <item itemvalue="Python tests.pytest for test_page_loader.test_page_loader" />
+        <item itemvalue="Python tests.pytest for test_page_loader.test_image_loader" />
+        <item itemvalue="Python.test_loader" />
         <item itemvalue="Python.test_parser" />
         <item itemvalue="Python tests.pytest for test_page_loader.test_image_reg" />
       </list>
