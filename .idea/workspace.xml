@@ -2,9 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="caeccd5f-053b-4fbb-adb4-2915a8f42041" name="Default Changelist" comment="added exception to nonexisting paths">
+      <change afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-clientlib-base-min-ACSHASHbd2ce78524d6155ecf9130f313b614b3.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-clientlib-base-min-ACSHASHd974c4b24aea743afc99a6528a2f4c4a.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-clientlib-dependencies-min-ACSHASH8e23e5ad8c1b5c588cca8d71df0aef0b.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-extrawide_3x1.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page_loader/content.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_loader/content.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page_loader/loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_loader/loader.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page_loader/scripts/page_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_loader/scripts/page_loader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-clientlib-base-min-ACSHASHbd2ce78524d6155ecf9130f313b614b3.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-clientlib-base-min-ACSHASHd974c4b24aea743afc99a6528a2f4c4a.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-clientlib-dependencies-min-ACSHASH8e23e5ad8c1b5c588cca8d71df0aef0b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-extrawide_3x1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-favicon-128.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-favicon-128.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-favicon-16x16.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-favicon-16x16.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-favicon-196x196.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-favicon-196x196.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-favicon-32x32.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-favicon-32x32.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-favicon-96x96.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-favicon-96x96.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-logo-black.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-logo-black.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-thumbnail-breaking-the-mold-square.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-thumbnail-breaking-the-mold-square.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-thumbnail-coronavirus-square.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-thumbnail-coronavirus-square.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-thumbnail-market-volatility-square.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-thumbnail-market-volatility-square.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-thumbnail-our-culture-square.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-thumbnail-our-culture-square.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-thumbnail-scale-sustainable-square.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-thumbnail-scale-sustainable-square.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-thumbnail-tech-innovator-square.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-thumbnail-tech-innovator-square.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-wide_16x9.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-wide_16x9.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com-_files/www-morganstanley-com-wwd_16x9.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-wwd_16x9.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_page_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_page_loader.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,22 +124,6 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for test_page_loader.test_image_loader_regular" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="python-project-lvl3" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_page_loader.test_image_loader_regular&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
     <configuration name="pytest for test_page_loader.test_image_reg" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="python-project-lvl3" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -131,13 +140,29 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="pytest for test_page_loader.test_page_loader" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="python-project-lvl3" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_page_loader.test_page_loader&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.test_loader" />
         <item itemvalue="Python tests.pytest for test_page_loader.test_image_loader" />
+        <item itemvalue="Python tests.pytest for test_page_loader.test_page_loader" />
         <item itemvalue="Python.test_parser" />
         <item itemvalue="Python tests.pytest for test_page_loader.test_image_reg" />
-        <item itemvalue="Python tests.pytest for test_page_loader.test_image_loader_regular" />
       </list>
     </recent_temporary>
   </component>

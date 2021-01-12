@@ -70,12 +70,12 @@ def load(url, content, path):
         print(source)
         src_path = f'{directory}/{src_name}{src_extension}'
         try:
-            content = requests.get(source, stream=True)
+            call = requests.get(source, stream=True)
         except requests.exceptions.ConnectionError:
             logger.error(f'Cannot open {source}. Connection status is'
                          f'{content.status_code}')
         with open(src_path, 'wb') as src_file:
-            shutil.copyfileobj(content.raw, src_file)
+            src_file.write(call.content)
         tag['src'] = f'{formatted_url}_files/{src_name}{src_extension}'
         bar.update(1)
     return str(soup)

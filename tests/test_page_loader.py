@@ -22,8 +22,8 @@ def test_page_loader(url, expected):
 
 
 url = 'https://www.morganstanley.com/'
-html_path = './tests/fixtures/www-morganstanley-com-.html'  # noqa: E501
-files_path = './tests/fixtures/www-morganstanley-com-_files/'  # noqa: E501
+html_path = 'fixtures/www-morganstanley-com.html'  # noqa: E501
+files_path = 'fixtures/www-morganstanley-com_files/'  # noqa: E501
 
 
 def open_and_read(path):
@@ -38,7 +38,7 @@ def get_dir(path):
 
 
 def test_image_loader():
-    with tempfile.TemporaryDirectory(dir='./tests/') as tmpdir:
+    with tempfile.TemporaryDirectory(dir='../tests/') as tmpdir:
         result_html = open_and_read(download(url, tmpdir))
         expected_html = open_and_read(html_path)
         assert result_html == expected_html

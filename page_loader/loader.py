@@ -39,27 +39,32 @@ def download(url, path):
         call = requests.get(url)
     except ConnectionError as error:
         raise error
-        logger.error(f'Cannot open resource on {url}')
+        logger.error(f'Cannot open {url}'
+                     f'Connection error')
     except urexc.MaxRetryError as error:
         raise error
-        logger.error(f'Cannot open resource on {url} 5')
+        logger.error(f'Cannot open {url}'
+                     f'Exceeded number of retries')
     except requests.exceptions.ConnectionError as error:
         raise error
-        logger.error(f'Cannot open resource on {url}\n'
+        logger.error(f'Cannot open {url}\n'
                      f'[Erno 111] Connection refused')
     except urexc.NewConnectionError as error:
         raise error
-        logger.error(f'Cannot open resource on {url} 3')
+        logger.error(f'Cannot open {url}'
+                     f'Connection Error')
     except ConnectionRefusedError as error:
         raise error
-        logger.error(f'Cannot open resource on {url} 1')
+        logger.error(f'Cannot open {url}'
+                     f'Connection refused')
     except requests.exceptions.HTTPError:
         raise call.raise_for_status()
     directory = stringify(path)
     html_file_name = formatter.format(url)
     logger.info('Connection established\nStarting to load content\n')
     changed_src_html = content.load(url, call.content, directory)
-    html_file_path = f'{directory}/{html_file_name}.html'
+    html_file_path = f'{directory}/{html_file_name.strip("-")}.html'
+    print(html_file_path)
     try:
         with open(html_file_path, 'w+') as content_file:
             content_file.write(changed_src_html)
