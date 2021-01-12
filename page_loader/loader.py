@@ -36,6 +36,7 @@ def download(url, path):
     logger.debug("Send GET request")
     logger.info(f'\nConnecting to {url} ...\n')
     call = requests.get(url)
+    http_error_msg = None
     if 400 <= call.status_code < 500:
         http_error_msg = f'Cannot open {url}: {call.status_code} Client Error'
     elif 500 <= call.status_code < 600:
