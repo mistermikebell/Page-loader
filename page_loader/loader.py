@@ -3,10 +3,10 @@ import os
 import requests
 import sys
 
-import urllib3.exceptions as urexc
 from page_loader import formatter
 from page_loader import content
 from page_loader.setup import set_logging
+from requests import HTTPError
 
 set_logging()
 logger = logging.getLogger(__name__)
@@ -35,30 +35,15 @@ def download(url, path):
         logger.error(f'{path} doesn\'t exists')
     logger.debug("Send GET request")
     logger.info(f'\nConnecting to {url} ...\n')
-    try:
-        call = requests.get(url)
-    except ConnectionError as error:
-        raise error
-        logger.error(f'Cannot open {url}'
-                     f'Connection error')
-    except urexc.MaxRetryError as error:
-        raise error
-        logger.error(f'Cannot open {url}'
-                     f'Exceeded number of retries')
-    except requests.exceptions.ConnectionError as error:
-        raise error
-        logger.error(f'Cannot open {url}\n'
-                     f'[Erno 111] Connection refused')
-    except urexc.NewConnectionError as error:
-        raise error
-        logger.error(f'Cannot open {url}'
-                     f'Connection Error')
-    except ConnectionRefusedError as error:
-        raise error
+    call = requests.get(url)
+    if 400 <= call.status_code < 500:
+        http_error_msg = f'Cannot open {url}: {call.status_code} Client Error'
+    elif 500 <= call.status_code < 600:
+        http_error_msg = f'Cannot open {url}: {call.status_code} Server Error'
+    if http_error_msg:
+        raise HTTPError(http_error_msg)
         logger.error(f'Cannot open {url}'
                      f'Connection refused')
-    except requests.exceptions.HTTPError:
-        raise call.raise_for_status()
     directory = stringify(path)
     html_file_name = formatter.format(url)
     logger.info('Connection established\nStarting to load content\n')

@@ -1,10 +1,9 @@
 import os
-
 import pytest
-
 import tempfile
 
 from page_loader import download
+from requests import HTTPError
 
 vars_and_results = [('https://ru.hexlet.io/projects/51/members/12259',
                      '/ru-hexlet-io-projects-51-members-12259.html'),
@@ -46,3 +45,16 @@ def test_image_loader():
         result_files = os.listdir(result_dir)
         expected_files = os.listdir(files_path)
         assert result_files == expected_files
+
+
+def test_exceptions():
+    with pytest.raises(OSError):
+        download(url, '/non_existing_directory')
+
+
+@pytest.mark.parametrize('status', [404, 500])
+def test_url_exceptions(requests_mock, status):
+    url = 'https://www.site.com'
+    requests_mock.get(url, status_code=status)
+    with pytest.raises(HTTPError):
+        download(url, 'tmp/')
