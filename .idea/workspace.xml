@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="caeccd5f-053b-4fbb-adb4-2915a8f42041" name="Default Changelist" comment="refactor tests v12">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page_loader/loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_loader/loader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/poetry.lock" beforeDir="false" afterPath="$PROJECT_DIR$/poetry.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+    <list default="true" id="caeccd5f-053b-4fbb-adb4-2915a8f42041" name="Default Changelist" comment="refactor tests v14">
       <change beforePath="$PROJECT_DIR$/tests/test_page_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_page_loader.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -308,7 +304,21 @@
       <option name="project" value="LOCAL" />
       <updated>1610445277100</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="refactor tests v13">
+      <created>1610451597875</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1610451597875</updated>
+    </task>
+    <task id="LOCAL-00025" summary="refactor tests v14">
+      <created>1610451761125</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1610451761125</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -347,6 +357,8 @@
     <MESSAGE value="refactor tests v10" />
     <MESSAGE value="refactor tests v11" />
     <MESSAGE value="refactor tests v12" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor tests v12" />
+    <MESSAGE value="refactor tests v13" />
+    <MESSAGE value="refactor tests v14" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor tests v14" />
   </component>
 </project>

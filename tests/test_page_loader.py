@@ -57,4 +57,4 @@ def test_url_exceptions(requests_mock, status):
     url = 'https://www.site.com'
     requests_mock.get(url, status_code=status)
     with pytest.raises(HTTPError):
-        download(url, 'tmp/')
+        download(url, './tests/')
