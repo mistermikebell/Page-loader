@@ -9,4 +9,4 @@ dist/
 .venv/
 .coverage
 coverage.xml
-.idea
+.idea/
