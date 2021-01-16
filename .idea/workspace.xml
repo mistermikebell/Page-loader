@@ -1,7 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="caeccd5f-053b-4fbb-adb4-2915a8f42041" name="Default Changelist" comment="refactor tests v14">
+    <list default="true" id="caeccd5f-053b-4fbb-adb4-2915a8f42041" name="Default Changelist" comment="refactor tests v15">
+      <change afterPath="$PROJECT_DIR$/page_loader/logging.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/page_loader/response_handler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/page_loader/tools.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/fixtures/img1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/fixtures/img2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/fixtures/input-content.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/fixtures/min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/fixtures/result/www-site-com.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/fixtures/result/www-site-com_files/www-anothersite-com-img2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/fixtures/result/www-site-com_files/www-site-com-img1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/fixtures/result/www-site-com_files/www-site-com-min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/fixtures/result/www-site-com_files/www-site-com-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/fixtures/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/tmp/requests-mock-readthedocs-io-en-latest-response-html.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/tmp/www-site-com.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page_loader/cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_loader/cli.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page_loader/content.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_loader/resources.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page_loader/formatter.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_loader/url_formatter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page_loader/loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_loader/loader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page_loader/scripts/page_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_loader/scripts/page_loader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page_loader/setup.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/poetry.lock" beforeDir="false" afterPath="$PROJECT_DIR$/poetry.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-clientlib-base-min-ACSHASHbd2ce78524d6155ecf9130f313b614b3.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-clientlib-base-min-ACSHASHd974c4b24aea743afc99a6528a2f4c4a.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-clientlib-dependencies-min-ACSHASH8e23e5ad8c1b5c588cca8d71df0aef0b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-extrawide_3x1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-favicon-128.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-favicon-16x16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-favicon-196x196.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-favicon-32x32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-favicon-96x96.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-logo-black.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-thumbnail-breaking-the-mold-square.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-thumbnail-coronavirus-square.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-thumbnail-market-volatility-square.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-thumbnail-our-culture-square.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-thumbnail-scale-sustainable-square.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-thumbnail-tech-innovator-square.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-wide_16x9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-wwd_16x9.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_page_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_page_loader.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -13,6 +55,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -25,6 +68,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/tests/fixtures" />
@@ -35,10 +79,11 @@
       <recent name="$PROJECT_DIR$/tests/fixtures" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests/fixtures/result" />
       <recent name="$PROJECT_DIR$/tests/fixtures" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.pytest for test_page_loader.test_url_exceptions">
+  <component name="RunManager" selected="Python tests.pytest for test_page_loader.test_directory_does_not_exist">
     <configuration name="test_loader" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="python-project-lvl3" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -60,6 +105,22 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="pytest for test_page_loader.test_directory_does_not_exist" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="python-project-lvl3" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_page_loader.test_directory_does_not_exist&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="pytest for test_page_loader.test_exceptions" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="python-project-lvl3" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -76,7 +137,7 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for test_page_loader.test_image_loader" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for test_page_loader.test_load_html" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="python-project-lvl3" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -88,23 +149,7 @@
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_page_loader.test_image_loader&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="pytest for test_page_loader.test_page_loader" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="python-project-lvl3" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_page_loader.test_page_loader&quot;" />
+      <option name="_new_target" value="&quot;test_page_loader.test_load_html&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -126,11 +171,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.pytest for test_page_loader.test_url_exceptions" />
-        <item itemvalue="Python tests.pytest for test_page_loader.test_exceptions" />
-        <item itemvalue="Python tests.pytest for test_page_loader.test_image_loader" />
-        <item itemvalue="Python tests.pytest for test_page_loader.test_page_loader" />
+        <item itemvalue="Python tests.pytest for test_page_loader.test_directory_does_not_exist" />
         <item itemvalue="Python.test_loader" />
+        <item itemvalue="Python tests.pytest for test_page_loader.test_url_exceptions" />
+        <item itemvalue="Python tests.pytest for test_page_loader.test_load_html" />
+        <item itemvalue="Python tests.pytest for test_page_loader.test_exceptions" />
       </list>
     </recent_temporary>
   </component>
@@ -318,7 +363,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610451761125</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="refactor tests v15">
+      <created>1610451957388</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1610451957388</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -334,7 +386,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="task 2" />
     <MESSAGE value="task 6" />
     <MESSAGE value="refactor tests" />
     <MESSAGE value="refactor tests v2" />
@@ -359,6 +410,7 @@
     <MESSAGE value="refactor tests v12" />
     <MESSAGE value="refactor tests v13" />
     <MESSAGE value="refactor tests v14" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor tests v14" />
+    <MESSAGE value="refactor tests v15" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor tests v15" />
   </component>
 </project>

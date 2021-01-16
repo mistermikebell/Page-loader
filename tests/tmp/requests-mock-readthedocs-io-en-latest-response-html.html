@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+ <!--<![endif]-->
+ <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>
+   Creating Responses &mdash; requests-mock 1.7.1.dev27 documentation
+  </title>
+  <script src="requests-mock-readthedocs-io-en-latest-response-html_files/requests-mock-readthedocs-io-modernizr-min.js" type="text/javascript">
+  </script>
+  <script data-url_root="./" id="documentation_options" src="requests-mock-readthedocs-io-en-latest-response-html_files/requests-mock-readthedocs-io-documentation_options.js" type="text/javascript">
+  </script>
+  <script src="requests-mock-readthedocs-io-en-latest-response-html_files/requests-mock-readthedocs-io-jquery.js" type="text/javascript">
+  </script>
+  <script src="requests-mock-readthedocs-io-en-latest-response-html_files/requests-mock-readthedocs-io-underscore.js" type="text/javascript">
+  </script>
+  <script src="requests-mock-readthedocs-io-en-latest-response-html_files/requests-mock-readthedocs-io-doctools.js" type="text/javascript">
+  </script>
+  <script src="requests-mock-readthedocs-io-en-latest-response-html_files/requests-mock-readthedocs-io-language_data.js" type="text/javascript">
+  </script>
+  <script async="async" src="requests-mock-readthedocs-io-en-latest-response-html_files/assets-readthedocs-org-readthedocs-doc-embed.js" type="text/javascript">
+  </script>
+  <script src="requests-mock-readthedocs-io-en-latest-response-html_files/requests-mock-readthedocs-io-theme.js" type="text/javascript">
+  </script>
+  <link href="requests-mock-readthedocs-io-en-latest-response-html_files/requests-mock-readthedocs-io-theme.css" rel="stylesheet" type="text/css">
+  <link href="requests-mock-readthedocs-io-en-latest-response-html_files/requests-mock-readthedocs-io-pygments.css" rel="stylesheet" type="text/css">
+  <link href="requests-mock-readthedocs-io-en-latest-response-html_files/requests-mock-readthedocs-io-genindex.html" rel="index" title="Index">
+  <link href="requests-mock-readthedocs-io-en-latest-response-html_files/requests-mock-readthedocs-io-search.html" rel="search" title="Search">
+  <link href="requests-mock-readthedocs-io-en-latest-response-html_files/requests-mock-readthedocs-io-knownissues.html" rel="next" title="Known Issues">
+  <link href="requests-mock-readthedocs-io-en-latest-response-html_files/requests-mock-readthedocs-io-matching.html" rel="prev" title="Request Matching">
+  <!-- RTD Extra Head -->
+  <!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+  <link href="requests-mock-readthedocs-io-en-latest-response-html_files/requests-mock-readthedocs-io-response.html" rel="canonical">
+  <link href="requests-mock-readthedocs-io-en-latest-response-html_files/assets-readthedocs-org-readthedocs-doc-embed.css" rel="stylesheet" type="text/css">
+  <script src="requests-mock-readthedocs-io-en-latest-response-html_files/requests-mock-readthedocs-io-readthedocs-data.js" type="text/javascript">
+  </script>
+  <!-- Add page-specific data, which must exist in the page js, not global -->
+  <script type="text/javascript">
+   READTHEDOCS_DATA['page'] = "response"
+READTHEDOCS_DATA['source_suffix'] = ".rst"
+  </script>
+  <script async="async" src="requests-mock-readthedocs-io-en-latest-response-html_files/assets-readthedocs-org-readthedocs-analytics.js" type="text/javascript">
+  </script>
+  <!-- end RTD <extrahead> -->
+ </head>
+ <body class="wy-body-for-nav">
+  <div class="wy-grid-for-nav">
+   <nav class="wy-nav-side" data-toggle="wy-nav-shift">
+    <div class="wy-side-scroll">
+     <div class="wy-side-nav-search">
+      <a class="icon icon-home" href="index.html">
+       requests-mock
+      </a>
+      <div class="version">
+       latest
+      </div>
+      <div role="search">
+       <form action="search.html" class="wy-form" id="rtd-search-form" method="get">
+        <input name="q" placeholder="Search docs" type="text">
+        <input name="check_keywords" type="hidden" value="yes">
+        <input name="area" type="hidden" value="default">
+       </form>
+      </div>
+     </div>
+     <div aria-label="main navigation" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+      <ul class="current">
+       <li class="toctree-l1">
+        <a class="reference internal" href="overview.html">
+         Overview
+        </a>
+       </li>
+       <li class="toctree-l1">
+        <a class="reference internal" href="mocker.html">
+         Using the Mocker
+        </a>
+       </li>
+       <li class="toctree-l1">
+        <a class="reference internal" href="matching.html">
+         Request Matching
+        </a>
+       </li>
+       <li class="toctree-l1 current">
+        <a class="current reference internal" href="#">
+         Creating Responses
+        </a>
+        <ul>
+         <li class="toctree-l2">
+          <a class="reference internal" href="#registering-responses">
+           Registering Responses
+          </a>
+         </li>
+         <li class="toctree-l2">
+          <a class="reference internal" href="#dynamic-response">
+           Dynamic Response
+          </a>
+         </li>
+         <li class="toctree-l2">
+          <a class="reference internal" href="#response-lists">
+           Response Lists
+          </a>
+         </li>
+         <li class="toctree-l2">
+          <a class="reference internal" href="#raising-exceptions">
+           Raising Exceptions
+          </a>
+         </li>
+         <li class="toctree-l2">
+          <a class="reference internal" href="#handling-cookies">
+           Handling Cookies
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="toctree-l1">
+        <a class="reference internal" href="knownissues.html">
+         Known Issues
+        </a>
+       </li>
+       <li class="toctree-l1">
+        <a class="reference internal" href="history.html">
+         Request History
+        </a>
+       </li>
+       <li class="toctree-l1">
+        <a class="reference internal" href="adapter.html">
+         Adapter Usage
+        </a>
+       </li>
+       <li class="toctree-l1">
+        <a class="reference internal" href="contrib.html">
+         Additional Loading
+        </a>
+       </li>
+      </ul>
+      <ul>
+       <li class="toctree-l1">
+        <a class="reference internal" href="release-notes.html">
+         Release Notes
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </nav>
+   <section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+    <nav aria-label="top navigation" class="wy-nav-top">
+     <i class="fa fa-bars" data-toggle="wy-nav-top">
+     </i>
+     <a href="index.html">
+      requests-mock
+     </a>
+    </nav>
+    <div class="wy-nav-content">
+     <div class="rst-content">
+      <div aria-label="breadcrumbs navigation" role="navigation">
+       <ul class="wy-breadcrumbs">
+        <li>
+         <a href="index.html">
+          Docs
+         </a>
+         &raquo;
+        </li>
+        <li>
+         Creating Responses
+        </li>
+        <li class="wy-breadcrumbs-aside">
+         <a class="fa fa-github" href="https://github.com/jamielennox/requests-mock/blob/master/doc/source/response.rst">
+          Edit on GitHub
+         </a>
+        </li>
+       </ul>
+       <hr>
+      </div>
+      <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+       <div itemprop="articleBody">
+        <div class="section" id="creating-responses">
+         <h1>
+          Creating Responses
+          <a class="headerlink" href="#creating-responses" title="Permalink to this headline">
+           &para;
+          </a>
+         </h1>
+         <div class="admonition note">
+          <p class="first admonition-title">
+           Note
+          </p>
+          <p>
+           The examples within use this syntax because response creation is a function of the adapter and not the mocker.
+All the same arguments can be provided to the mocker if that is how you use
+           <cite>
+            requests_mock
+           </cite>
+           within your project, and use the
+          </p>
+          <div class="code python highlight-default notranslate">
+           <div class="highlight">
+            <pre><span></span><span class="n">mock</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre>
+           </div>
+          </div>
+          <p>
+           form in place of the given:
+          </p>
+          <div class="code python highlight-default notranslate">
+           <div class="highlight">
+            <pre><span></span><span class="n">adapter</span><span class="o">.</span><span class="n">register_uri</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre>
+           </div>
+          </div>
+          <p class="last">
+           If you are not familiar with
+           <a class="reference external" href="https://requests.readthedocs.io/">
+            requests
+           </a>
+           &rsquo; adapters (see
+           <a class="reference internal" href="adapter.html#adapter">
+            <span class="std std-ref">
+             Adapter Usage
+            </span>
+           </a>
+           ),
+prefer the mocker approach (see
+           <a class="reference internal" href="mocker.html#mocker">
+            <span class="std std-ref">
+             Using the Mocker
+            </span>
+           </a>
+           ).
+          </p>
+         </div>
+         <div class="section" id="registering-responses">
+          <h2>
+           Registering Responses
+           <a class="headerlink" href="#registering-responses" title="Permalink to this headline">
+            &para;
+           </a>
+          </h2>
+          <p>
+           Responses are registered with the
+           <code class="xref py py-meth docutils literal notranslate">
+            <span class="pre">
+             requests_mock.Adapter.register_uri()
+            </span>
+           </code>
+           function on the adapter.
+          </p>
+          <div class="highlight-pycon notranslate">
+           <div class="highlight">
+            <pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">adapter</span><span class="o">.</span><span class="n">register_uri</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="s1">'mock://test.com'</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s1">'Success'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'mock://test.com'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resp</span><span class="o">.</span><span class="n">text</span>
+<span class="go">'Success'</span>
+</pre>
+           </div>
+          </div>
+          <p>
+           <code class="xref py py-meth docutils literal notranslate">
+            <span class="pre">
+             register_uri()
+            </span>
+           </code>
+           takes the HTTP method, the URI and then information that is used to build the response. This information includes:
+          </p>
+          <table class="docutils field-list" frame="void" rules="none">
+           <col class="field-name">
+           <col class="field-body">
+           <tbody valign="top">
+            <tr class="field-odd field">
+             <th class="field-name">
+              status_code:
+             </th>
+             <td class="field-body">
+              The HTTP status response to return. Defaults to 200.
+             </td>
+            </tr>
+            <tr class="field-even field">
+             <th class="field-name">
+              reason:
+             </th>
+             <td class="field-body">
+              The reason text that accompanies the Status (e.g. &lsquo;OK&rsquo; in &lsquo;200 OK&rsquo;)
+             </td>
+            </tr>
+            <tr class="field-odd field">
+             <th class="field-name">
+              headers:
+             </th>
+             <td class="field-body">
+              A dictionary of headers to be included in the response.
+             </td>
+            </tr>
+            <tr class="field-even field">
+             <th class="field-name">
+              cookies:
+             </th>
+             <td class="field-body">
+              A CookieJar containing all the cookies to add to the response.
+             </td>
+            </tr>
+           </tbody>
+          </table>
+          <p>
+           To specify the body of the response there are a number of options that depend on the format that you wish to return.
+          </p>
+          <table class="docutils field-list" frame="void" rules="none">
+           <col class="field-name">
+           <col class="field-body">
+           <tbody valign="top">
+            <tr class="field-odd field">
+             <th class="field-name">
+              json:
+             </th>
+             <td class="field-body">
+              A python object that will be converted to a JSON string.
+             </td>
+            </tr>
+            <tr class="field-even field">
+             <th class="field-name">
+              text:
+             </th>
+             <td class="field-body">
+              A unicode string. This is typically what you will want to use for regular textual content.
+             </td>
+            </tr>
+            <tr class="field-odd field">
+             <th class="field-name">
+              content:
+             </th>
+             <td class="field-body">
+              A byte string. This should be used for including binary data in responses.
+             </td>
+            </tr>
+            <tr class="field-even field">
+             <th class="field-name">
+              body:
+             </th>
+             <td class="field-body">
+              A file like object that contains a
+              <cite>
+               .read()
+              </cite>
+              function.
+             </td>
+            </tr>
+            <tr class="field-odd field">
+             <th class="field-name">
+              raw:
+             </th>
+             <td class="field-body">
+              A prepopulated
+              <a class="reference external" href="https://urllib3.readthedocs.io/en/latest/reference/index.html#urllib3.response.HTTPResponse" title="(in urllib3 v1.25.6)">
+               <code class="xref py py-class docutils literal notranslate">
+                <span class="pre">
+                 urllib3.response.HTTPResponse
+                </span>
+               </code>
+              </a>
+              to be returned.
+             </td>
+            </tr>
+            <tr class="field-even field">
+             <th class="field-name">
+              exc:
+             </th>
+             <td class="field-body">
+              An exception that will be raised instead of returning a response.
+             </td>
+            </tr>
+           </tbody>
+          </table>
+          <p>
+           These options are named to coincide with the parameters on a
+           <code class="xref py py-class docutils literal notranslate">
+            <span class="pre">
+             requests.Response
+            </span>
+           </code>
+           object. For example:
+          </p>
+          <div class="highlight-pycon notranslate">
+           <div class="highlight">
+            <pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">adapter</span><span class="o">.</span><span class="n">register_uri</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="s1">'mock://test.com/1'</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s1">'a'</span><span class="p">:</span> <span class="s1">'b'</span><span class="p">},</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'mock://test.com/1'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="go">{'a': 'b'}</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adapter</span><span class="o">.</span><span class="n">register_uri</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="s1">'mock://test.com/2'</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s1">'Not Found'</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">404</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'mock://test.com/2'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resp</span><span class="o">.</span><span class="n">text</span>
+<span class="go">'Not Found'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resp</span><span class="o">.</span><span class="n">status_code</span>
+<span class="go">404</span>
+</pre>
+           </div>
+          </div>
+          <p>
+           It only makes sense to provide at most one body element per response.
+          </p>
+         </div>
+         <div class="section" id="dynamic-response">
+          <h2>
+           Dynamic Response
+           <a class="headerlink" href="#dynamic-response" title="Permalink to this headline">
+            &para;
+           </a>
+          </h2>
+          <p>
+           A callback can be provided in place of any of the body elements.
+Callbacks must be a function in the form of
+          </p>
+          <div class="code python highlight-default notranslate">
+           <div class="highlight">
+            <pre><span></span><span class="k">def</span> <span class="nf">callback</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+</pre>
+           </div>
+          </div>
+          <p>
+           and return a value suitable to the body element that was specified.
+The elements provided are:
+          </p>
+          <table class="docutils field-list" frame="void" rules="none">
+           <col class="field-name">
+           <col class="field-body">
+           <tbody valign="top">
+            <tr class="field-odd field">
+             <th class="field-name">
+              request:
+             </th>
+             <td class="field-body">
+              The
+              <code class="xref py py-class docutils literal notranslate">
+               <span class="pre">
+                requests.Request
+               </span>
+              </code>
+              object that was provided.
+             </td>
+            </tr>
+            <tr class="field-even field">
+             <th class="field-name">
+              context:
+             </th>
+             <td class="field-body">
+              An object containing the collected known data about this response.
+             </td>
+            </tr>
+           </tbody>
+          </table>
+          <p>
+           The available properties on the
+           <cite>
+            context
+           </cite>
+           are:
+          </p>
+          <table class="docutils field-list" frame="void" rules="none">
+           <col class="field-name">
+           <col class="field-body">
+           <tbody valign="top">
+            <tr class="field-odd field">
+             <th class="field-name">
+              headers:
+             </th>
+             <td class="field-body">
+              The dictionary of headers that are to be returned in the response.
+             </td>
+            </tr>
+            <tr class="field-even field">
+             <th class="field-name">
+              status_code:
+             </th>
+             <td class="field-body">
+              The status code that is to be returned in the response.
+             </td>
+            </tr>
+            <tr class="field-odd field">
+             <th class="field-name">
+              reason:
+             </th>
+             <td class="field-body">
+              The string HTTP status code reason that is to be returned in the response.
+             </td>
+            </tr>
+            <tr class="field-even field">
+             <th class="field-name">
+              cookies:
+             </th>
+             <td class="field-body">
+              A
+              <code class="xref py py-class docutils literal notranslate">
+               <span class="pre">
+                requests_mock.CookieJar
+               </span>
+              </code>
+              of cookies that will be merged into the response.
+             </td>
+            </tr>
+           </tbody>
+          </table>
+          <p>
+           These parameters are populated initially from the variables provided to the
+           <code class="xref py py-meth docutils literal notranslate">
+            <span class="pre">
+             register_uri()
+            </span>
+           </code>
+           function and if they are modified on the context object then those changes will be reflected in the response.
+          </p>
+          <div class="highlight-pycon notranslate">
+           <div class="highlight">
+            <pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">text_callback</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">context</span><span class="o">.</span><span class="n">status_code</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="gp">... </span>    <span class="n">context</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">'Test1'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'value1'</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="s1">'response'</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adapter</span><span class="o">.</span><span class="n">register_uri</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span>
+<span class="gp">... </span>                     <span class="s1">'mock://test.com/3'</span><span class="p">,</span>
+<span class="gp">... </span>                     <span class="n">text</span><span class="o">=</span><span class="n">text_callback</span><span class="p">,</span>
+<span class="gp">... </span>                     <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">'Test2'</span><span class="p">:</span> <span class="s1">'value2'</span><span class="p">},</span>
+<span class="gp">... </span>                     <span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'mock://test.com/3'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resp</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="n">resp</span><span class="o">.</span><span class="n">headers</span><span class="p">,</span> <span class="n">resp</span><span class="o">.</span><span class="n">text</span>
+<span class="go">(200, {'Test1': 'value1', 'Test2': 'value2'}, 'response')</span>
+</pre>
+           </div>
+          </div>
+         </div>
+         <div class="section" id="response-lists">
+          <h2>
+           Response Lists
+           <a class="headerlink" href="#response-lists" title="Permalink to this headline">
+            &para;
+           </a>
+          </h2>
+          <p>
+           Multiple responses can be provided to be returned in order by specifying the keyword parameters in a list.
+If the list is exhausted then the last response will continue to be returned.
+          </p>
+          <div class="highlight-pycon notranslate">
+           <div class="highlight">
+            <pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">adapter</span><span class="o">.</span><span class="n">register_uri</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="s1">'mock://test.com/4'</span><span class="p">,</span> <span class="p">[{</span><span class="s1">'text'</span><span class="p">:</span> <span class="s1">'resp1'</span><span class="p">,</span> <span class="s1">'status_code'</span><span class="p">:</span> <span class="mi">300</span><span class="p">},</span>
+<span class="gp">... </span>                                                  <span class="p">{</span><span class="s1">'text'</span><span class="p">:</span> <span class="s1">'resp2'</span><span class="p">,</span> <span class="s1">'status_code'</span><span class="p">:</span> <span class="mi">200</span><span class="p">}])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'mock://test.com/4'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="go">(300, 'resp1')</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'mock://test.com/4'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="go">(200, 'resp2')</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'mock://test.com/4'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="go">(200, 'resp2')</span>
+</pre>
+           </div>
+          </div>
+          <p>
+           Callbacks work within response lists in exactly the same way they do normally;
+          </p>
+          <div class="highlight-pycon notranslate">
+           <div class="highlight">
+            <pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">adapter</span><span class="o">.</span><span class="n">register_uri</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="s1">'mock://test.com/5'</span><span class="p">,</span> <span class="p">[{</span><span class="s1">'text'</span><span class="p">:</span> <span class="n">text_callback</span><span class="p">}]),</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'mock://test.com/5'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resp</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="n">resp</span><span class="o">.</span><span class="n">headers</span><span class="p">,</span> <span class="n">resp</span><span class="o">.</span><span class="n">text</span>
+<span class="go">(200, {'Test1': 'value1', 'Test2': 'value2'}, 'response')</span>
+</pre>
+           </div>
+          </div>
+         </div>
+         <div class="section" id="raising-exceptions">
+          <h2>
+           Raising Exceptions
+           <a class="headerlink" href="#raising-exceptions" title="Permalink to this headline">
+            &para;
+           </a>
+          </h2>
+          <p>
+           When trying to emulate a connection timeout or SSLError you need to be able to throw an exception when a mock is hit.
+This can be achieved by passing the
+           <cite>
+            exc
+           </cite>
+           parameter instead of a body parameter.
+          </p>
+          <div class="highlight-pycon notranslate">
+           <div class="highlight">
+            <pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">adapter</span><span class="o">.</span><span class="n">register_uri</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="s1">'mock://test.com/6'</span><span class="p">,</span> <span class="n">exc</span><span class="o">=</span><span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ConnectTimeout</span><span class="p">),</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'mock://test.com/6'</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+   <span class="c">...</span>
+<span class="gr">ConnectTimeout</span>:
+</pre>
+           </div>
+          </div>
+         </div>
+         <div class="section" id="handling-cookies">
+          <h2>
+           Handling Cookies
+           <a class="headerlink" href="#handling-cookies" title="Permalink to this headline">
+            &para;
+           </a>
+          </h2>
+          <p>
+           Whilst cookies are just headers they are treated in a different way, both in HTTP and the requests library.
+To work as closely to the requests library as possible there are two ways to provide cookies to requests_mock responses.
+          </p>
+          <p>
+           The most simple method is to use a dictionary interface.
+The Key and value of the dictionary are turned directly into the name and value of the cookie.
+This method does not allow you to set any of the more advanced cookie parameters like expiry or domain.
+          </p>
+          <div class="highlight-pycon notranslate">
+           <div class="highlight">
+            <pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">adapter</span><span class="o">.</span><span class="n">register_uri</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="s1">'mock://test.com/7'</span><span class="p">,</span> <span class="n">cookies</span><span class="o">=</span><span class="p">{</span><span class="s1">'foo'</span><span class="p">:</span> <span class="s1">'bar'</span><span class="p">}),</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'mock://test.com/7'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resp</span><span class="o">.</span><span class="n">cookies</span><span class="p">[</span><span class="s1">'foo'</span><span class="p">]</span>
+<span class="go">'bar'</span>
+</pre>
+           </div>
+          </div>
+          <p>
+           The more advanced way is to construct and populate a cookie jar that you can add cookies to and pass that to the mocker.
+          </p>
+          <div class="highlight-pycon notranslate">
+           <div class="highlight">
+            <pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">jar</span> <span class="o">=</span> <span class="n">requests_mock</span><span class="o">.</span><span class="n">CookieJar</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">jar</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">'foo'</span><span class="p">,</span> <span class="s1">'bar'</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="s1">'.test.com'</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s1">'/baz'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">adapter</span><span class="o">.</span><span class="n">register_uri</span><span class="p">(</span><span class="s1">'GET'</span><span class="p">,</span> <span class="s1">'mock://test.com/8'</span><span class="p">,</span> <span class="n">cookies</span><span class="o">=</span><span class="n">jar</span><span class="p">),</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resp</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'mock://test.com/8'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resp</span><span class="o">.</span><span class="n">cookies</span><span class="p">[</span><span class="s1">'foo'</span><span class="p">]</span>
+<span class="go">'bar'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resp</span><span class="o">.</span><span class="n">cookies</span><span class="o">.</span><span class="n">list_paths</span><span class="p">()</span>
+<span class="go">['/baz']</span>
+</pre>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <footer>
+       <div aria-label="footer navigation" class="rst-footer-buttons" role="navigation">
+        <a accesskey="n" class="btn btn-neutral float-right" href="knownissues.html" rel="next" title="Known Issues">
+         Next
+         <span class="fa fa-arrow-circle-right">
+         </span>
+        </a>
+        <a accesskey="p" class="btn btn-neutral float-left" href="matching.html" rel="prev" title="Request Matching">
+         <span class="fa fa-arrow-circle-left">
+         </span>
+         Previous
+        </a>
+       </div>
+       <hr>
+       <div role="contentinfo">
+        <p>
+         &copy; Copyright 2014, Jamie Lennox
+         <span class="commit">
+          Revision
+          <code>
+           1b9a732f
+          </code>
+          .
+         </span>
+        </p>
+       </div>
+       Built with
+       <a href="http://sphinx-doc.org/">
+        Sphinx
+       </a>
+       using a
+       <a href="https://github.com/rtfd/sphinx_rtd_theme">
+        theme
+       </a>
+       provided by
+       <a href="https://readthedocs.org">
+        Read the Docs
+       </a>
+       .
+      </footer>
+     </div>
+    </div>
+   </section>
+  </div>
+  <div aria-label="versions" class="rst-versions" data-toggle="rst-versions" role="note">
+   <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book">
+     Read the Docs
+    </span>
+    v: latest
+    <span class="fa fa-caret-down">
+    </span>
+   </span>
+   <div class="rst-other-versions">
+    <dl>
+     <dt>
+      Versions
+     </dt>
+     <dd>
+      <a href="/en/latest/">
+       latest
+      </a>
+     </dd>
+     <dd>
+      <a href="/en/stable/">
+       stable
+      </a>
+     </dd>
+     <dd>
+      <a href="/en/1.7.0/">
+       1.7.0
+      </a>
+     </dd>
+     <dd>
+      <a href="/en/1.5.2/">
+       1.5.2
+      </a>
+     </dd>
+     <dd>
+      <a href="/en/1.5.1/">
+       1.5.1
+      </a>
+     </dd>
+     <dd>
+      <a href="/en/1.5.0/">
+       1.5.0
+      </a>
+     </dd>
+     <dd>
+      <a href="/en/1.4.0/">
+       1.4.0
+      </a>
+     </dd>
+     <dd>
+      <a href="/en/0.7.0/">
+       0.7.0
+      </a>
+     </dd>
+     <dd>
+      <a href="/en/0.6.0/">
+       0.6.0
+      </a>
+     </dd>
+    </dl>
+    <dl>
+     <dt>
+      Downloads
+     </dt>
+     <dd>
+      <a href="//requests-mock.readthedocs.io/_/downloads/en/latest/pdf/">
+       pdf
+      </a>
+     </dd>
+     <dd>
+      <a href="//requests-mock.readthedocs.io/_/downloads/en/latest/htmlzip/">
+       html
+      </a>
+     </dd>
+     <dd>
+      <a href="//requests-mock.readthedocs.io/_/downloads/en/latest/epub/">
+       epub
+      </a>
+     </dd>
+    </dl>
+    <dl>
+     <dt>
+      On Read the Docs
+     </dt>
+     <dd>
+      <a href="//readthedocs.org/projects/requests-mock/?fromdocs=requests-mock">
+       Project Home
+      </a>
+     </dd>
+     <dd>
+      <a href="//readthedocs.org/builds/requests-mock/?fromdocs=requests-mock">
+       Builds
+      </a>
+     </dd>
+    </dl>
+    <hr>
+    Free document hosting provided by
+    <a href="http://www.readthedocs.org">
+     Read the Docs
+    </a>
+    .
+   </div>
+  </div>
+  <script type="text/javascript">
+   jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ </body>
+</html>

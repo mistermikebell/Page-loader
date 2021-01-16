@@ -1,4 +1,5 @@
 import argparse
+import os
 
 
 def get_parse_args():
@@ -9,6 +10,19 @@ def get_parse_args():
         '-o',
         '--output',
         type=str,
-        default='/',
-        help='set the directory')
+        default=os.getcwd(),
+        help='Set a directory to save files')
+    parser.add_argument(
+        '-f',
+        '--file',
+        type=str,
+        default='no file',
+        help='Set a directory where to save a log file. '
+             'If empty then logging will be switched off')
+    parser.add_argument(
+        '-l',
+        '--log-level',
+        type=str,
+        default=2,
+        help='Set a level of logging. Default is INFO')
     return parser.parse_args()

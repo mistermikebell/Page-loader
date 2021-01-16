@@ -2,27 +2,13 @@ import os
 import pytest
 import tempfile
 
+from os.path import abspath, join
 from page_loader import download
 from requests import HTTPError
+from unittest import mock
+from urllib3.exceptions import ConnectTimeoutError
 
-vars_and_results = [('https://ru.hexlet.io/projects/51/members/12259',
-                     '/ru-hexlet-io-projects-51-members-12259.html'),
-                    ('https://docs.python.org/3/library/urllib.parse.html',
-                     '/docs-python-org-3-library-urllib-parse-html.html'),
-                    ('https://translate.google.com/?hl=ru&sl=en&tl=uk&text=hello&op=translate',  # noqa: E501
-                     '/translate-google-com.html')]
-
-
-@pytest.mark.parametrize('url,expected', vars_and_results)
-def test_page_loader(url, expected):
-    with tempfile.TemporaryDirectory(dir='./tests/') as tmpdir:
-        expected_path = tmpdir + expected
-        assert download(url, tmpdir) == expected_path
-
-
-url = 'https://www.morganstanley.com/'
-html_path = './tests/fixtures/www-morganstanley-com.html'
-files_path = './tests/fixtures/www-morganstanley-com_files/'
+URL = 'https://www.site.com'
 
 
 def open_and_read(path):
@@ -36,25 +22,53 @@ def get_dir(path):
     return os.path.join(path, dirs[0])
 
 
-def test_image_loader():
+def test_load_html(requests_mock):
+    sources = {'https://www.site.com':
+               './tests/fixtures/input-content.html',
+               'https://www.site.com/themes/style.css':
+               './tests/fixtures/style.css',
+               'https://www.site.com/themes/min.js':
+               './tests/fixtures/min.js',
+               'http://www.site.com/files/img1.png':
+               './tests/fixtures/img1.png',
+               'http://www.anothersite.com/files/img2.png':
+               './tests/fixtures/img2.png'
+               }
+    for source, content in sources.items():
+        requests_mock.get(source, content=open_and_read(content).encode())
     with tempfile.TemporaryDirectory(dir='./tests/') as tmpdir:
-        result_html = open_and_read(download(url, tmpdir))
-        expected_html = open_and_read(html_path)
-        assert result_html == expected_html
-        result_dir = get_dir(tmpdir)
-        result_files = os.listdir(result_dir)
-        expected_files = os.listdir(files_path)
+        expected_path = abspath(join(tmpdir, 'www-site-com.html'))
+        assert download(URL, tmpdir) == expected_path
+        result_files = os.listdir(tmpdir)
+        expected_files = os.listdir('fixtures/result')
         assert result_files == expected_files
+        result_dir = get_dir(tmpdir)
+        result_files_list = os.listdir(result_dir)
+        expected_files_list = os.listdir('fixtures/result/www-site-com_files')
+        assert result_files_list == expected_files_list
 
 
-def test_exceptions():
-    with pytest.raises(OSError):
-        download(url, '/non_existing_directory')
+@pytest.mark.parametrize('exc', [OSError, PermissionError])
+def test_directory_does_not_exist(requests_mock, exc):
+    requests_mock.get(URL)
+    with mock.patch('os.makedirs') as mocker:
+        mocker.side_effect = exc
+        with pytest.raises(exc):
+            download(URL, 'tmp/')
 
 
 @pytest.mark.parametrize('status', [404, 500])
 def test_url_exceptions(requests_mock, status):
-    url = 'https://www.site.com'
-    requests_mock.get(url, status_code=status)
+    requests_mock.get(URL, status_code=status)
     with pytest.raises(HTTPError):
-        download(url, './tests/')
+        download(URL, './tests/')
+
+
+EXCEPTIONS = [ConnectTimeoutError, ConnectionRefusedError]
+
+
+@pytest.mark.parametrize('exception', EXCEPTIONS)
+def test_url_exceptions(requests_mock, exception):
+    requests_mock.get(URL, exc=exception)
+    with pytest.raises(ConnectionError):
+        download(URL, './tests/')

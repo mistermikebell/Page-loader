@@ -1,59 +1,46 @@
 import logging
 import os
-import requests
-import sys
+import progressbar
 
-from page_loader import formatter
-from page_loader import content
-from page_loader.setup import set_logging
-from requests import HTTPError
-
-set_logging()
-logger = logging.getLogger(__name__)
-
-printing_handler = logging.StreamHandler(sys.stdout)
-printing_handler.setLevel(logging.INFO)
-printing_handler.setFormatter(logging.Formatter('%(message)s'))
-
-stream_handler = logging.StreamHandler()
-stream_handler.setLevel(logging.ERROR)
-stream_handler.setFormatter(logging.Formatter('%(message)s'))
-
-logger.addHandler(stream_handler)
-logger.addHandler(printing_handler)
+from page_loader import url_formatter
+from page_loader.resources import modify_and_get_resources
+from page_loader.tools import create_file, create_directory
+from page_loader.response_handler import try_load_url
 
 
-def stringify(path):
-    if isinstance(path, bytes):
-        return path.decode()
-    return path.strip('/')
+def load_resources(sources, path):
+    bar = progressbar.ProgressBar(max_value=len(sources),
+                                  redirect_stdout=True).start()
+    for source, name in sources.items():
+        print(source)
+        try:
+            response = try_load_url(source)
+        except Exception as error:
+            logging.error(error)
+            print(f'Cannot open {source}')
+            continue
+        create_file(path, name, response.text)
+    bar.update()
 
 
 def download(url, path):
     if not os.path.exists(path):
-        raise OSError
-        logger.error(f'{path} doesn\'t exists')
-    logger.debug("Send GET request")
-    logger.info(f'\nConnecting to {url} ...\n')
-    call = requests.get(url)
-    http_error_msg = None
-    if 400 <= call.status_code < 500:
-        http_error_msg = f'Cannot open {url}: {call.status_code} Client Error'
-    elif 500 <= call.status_code < 600:
-        http_error_msg = f'Cannot open {url}: {call.status_code} Server Error'
-    if http_error_msg:
-        raise HTTPError(http_error_msg)
-        logger.error(f'Cannot open {url}'
-                     f'Connection refused')
-    directory = stringify(path)
-    html_file_name = formatter.format(url)
-    logger.info('Connection established\nStarting to load content\n')
-    changed_src_html = content.load(url, call.content, directory)
-    html_file_path = f'{directory}/{html_file_name.strip("-")}.html'
-    try:
-        with open(html_file_path, 'w+') as content_file:
-            content_file.write(changed_src_html)
-    except PermissionError:
-        logger.error(f'Cannot create file in {directory}')
-        raise PermissionError
-    return html_file_path
+        logging.error('OSError')
+        raise OSError(f'{path} doesn\'t exist')
+    logging.info("Send GET request")
+    logging.info(f'\nConnecting to {url} ...\n')
+    response = try_load_url(url)
+    logging.info('Connection established\n\nStarting to load content\n')
+
+    formatted_url = url_formatter.to_file_name(url)
+    resources_directory_name = f'{formatted_url}_files'
+    modified_html, resources_list = modify_and_get_resources(
+                                        url, resources_directory_name,
+                                        response.content)
+    html_file_name = f'{formatted_url}.html'
+    html_file_path = url_formatter.to_directory_name(path, html_file_name)
+    create_file(path, html_file_name, modified_html)
+    resources_directory_path = create_directory(path,
+                                                resources_directory_name)
+    load_resources(resources_list, resources_directory_path)
+    return os.path.abspath(html_file_path)
