@@ -44,7 +44,7 @@ def test_load_html(requests_mock):
         assert result_files == expected_files
         result_dir = get_dir(tmpdir)
         result_files_list = os.listdir(result_dir)
-        expected_files_list = os.listdir('fixtures/result/www-site-com_files')
+        expected_files_list = os.listdir('./tests/fixtures/result/www-site-com_files')
         assert result_files_list == expected_files_list
 
 
