@@ -10,7 +10,6 @@ def create_directory(path, name):
         print(f'\nPlease, pay attention that the website '
               f'had been downloaded in {path} before.\n')
     else:
-        print("WE ARE HERE!")
         os.makedirs(directory_path)
     return directory_path
 

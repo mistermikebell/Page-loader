@@ -40,7 +40,7 @@ def test_load_html(requests_mock):
         expected_path = abspath(join(tmpdir, 'www-site-com.html'))
         assert download(URL, tmpdir) == expected_path
         result_files = os.listdir(tmpdir)
-        expected_files = os.listdir('./tests/fixtures/fixtures/result')
+        expected_files = os.listdir('./tests/fixtures/result')
         assert result_files == expected_files
         result_dir = get_dir(tmpdir)
         result_files_list = os.listdir(result_dir)
