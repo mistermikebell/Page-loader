@@ -1,51 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="caeccd5f-053b-4fbb-adb4-2915a8f42041" name="Default Changelist" comment="refactor tests v15">
-      <change afterPath="$PROJECT_DIR$/page_loader/logging.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/page_loader/response_handler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/page_loader/tools.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/img1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/img2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/input-content.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/result/www-site-com.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/result/www-site-com_files/www-anothersite-com-img2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/result/www-site-com_files/www-site-com-img1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/result/www-site-com_files/www-site-com-min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/result/www-site-com_files/www-site-com-style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/fixtures/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/tmp/requests-mock-readthedocs-io-en-latest-response-html.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/tmp/www-site-com.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page_loader/cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_loader/cli.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page_loader/content.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_loader/resources.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page_loader/formatter.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_loader/url_formatter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page_loader/loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_loader/loader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page_loader/scripts/page_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/page_loader/scripts/page_loader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page_loader/setup.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/poetry.lock" beforeDir="false" afterPath="$PROJECT_DIR$/poetry.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-clientlib-base-min-ACSHASHbd2ce78524d6155ecf9130f313b614b3.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-clientlib-base-min-ACSHASHd974c4b24aea743afc99a6528a2f4c4a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-clientlib-dependencies-min-ACSHASH8e23e5ad8c1b5c588cca8d71df0aef0b.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-extrawide_3x1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-favicon-128.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-favicon-16x16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-favicon-196x196.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-favicon-32x32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-favicon-96x96.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-logo-black.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-thumbnail-breaking-the-mold-square.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-thumbnail-coronavirus-square.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-thumbnail-market-volatility-square.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-thumbnail-our-culture-square.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-thumbnail-scale-sustainable-square.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-thumbnail-tech-innovator-square.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-wide_16x9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/fixtures/www-morganstanley-com_files/www-morganstanley-com-wwd_16x9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_page_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_page_loader.py" afterDir="false" />
-    </list>
+    <list default="true" id="caeccd5f-053b-4fbb-adb4-2915a8f42041" name="Default Changelist" comment="correcting mistakes v1" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -370,7 +326,21 @@
       <option name="project" value="LOCAL" />
       <updated>1610451957388</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="correcting mistakes v1">
+      <created>1610814337808</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1610814337808</updated>
+    </task>
+    <task id="LOCAL-00028" summary="correcting mistakes v1">
+      <created>1610814442249</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1610814442249</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -386,7 +356,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="task 6" />
     <MESSAGE value="refactor tests" />
     <MESSAGE value="refactor tests v2" />
     <MESSAGE value="refactor tests v3" />
@@ -411,6 +380,7 @@
     <MESSAGE value="refactor tests v13" />
     <MESSAGE value="refactor tests v14" />
     <MESSAGE value="refactor tests v15" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor tests v15" />
+    <MESSAGE value="correcting mistakes v1" />
+    <option name="LAST_COMMIT_MESSAGE" value="correcting mistakes v1" />
   </component>
 </project>
