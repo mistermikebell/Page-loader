@@ -55,7 +55,7 @@ def test_directory_does_not_exist(requests_mock, exc):
     with mock.patch('os.makedirs') as mocker:
         mocker.side_effect = exc
         with pytest.raises(exc):
-            download(URL, 'tmp/')
+            download(URL, '/tests/tmp/')
 
 
 @pytest.mark.parametrize('status', [404, 500])
