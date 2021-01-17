@@ -16,6 +16,7 @@ def to_directory_name(path, name):
 
 def to_file_name_with_extension(url):
     path, extension = splitext(url)
-    print("SHORT PATH", path)
+    if extension == '':
+        extension = 'html'
     formatted_url = to_file_name(path)
     return f'{formatted_url}{extension}'

@@ -50,23 +50,24 @@ def test_load_html(requests_mock):
 @pytest.mark.parametrize('exc', [OSError, PermissionError])
 def test_directory_does_not_exist(requests_mock, exc):
     requests_mock.get(URL)
-    with mock.patch('os.makedirs') as mocker:
+    with mock.patch('page_loader.tools.open') as mocker:
         mocker.side_effect = exc
         with pytest.raises(exc):
-            download(URL, './tests/tmp/')
+            with tempfile.TemporaryDirectory(dir='./tests/') as tmpdir:
+                download(URL, tmpdir)
 
 
 @pytest.mark.parametrize('status', [404, 500])
-def test_url_exceptions(requests_mock, status):
+def test_status_codes(requests_mock, status):
     requests_mock.get(URL, status_code=status)
     with pytest.raises(HTTPError):
         download(URL, './tests/')
 
 
-EXCEPTIONS = [ConnectTimeoutError, ConnectionRefusedError]
+URL_EXCEPTIONS = [ConnectTimeoutError, ConnectionRefusedError]
 
 
-@pytest.mark.parametrize('exception', EXCEPTIONS)
+@pytest.mark.parametrize('exception', URL_EXCEPTIONS)
 def test_url_exceptions(requests_mock, exception):
     requests_mock.get(URL, exc=exception)
     with pytest.raises(ConnectionError):
