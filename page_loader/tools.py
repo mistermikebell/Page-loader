@@ -23,7 +23,8 @@ def create_file(path, name, content):
         logging.error('Not a directory')
         raise NotADirectoryError('Not a directory')
     except FileNotFoundError:
-        raise FileNotFoundError
+        logging.error('No such file or directory')
+        raise FileNotFoundError('No such file or directory')
     except PermissionError:
         logging.error(f'Cannot save in {path}: Read-only file system')
         raise PermissionError(f'Cannot save in {path}: Read-only file system')

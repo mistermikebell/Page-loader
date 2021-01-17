@@ -4,7 +4,7 @@ import tempfile
 
 from os.path import abspath, join
 from page_loader import download
-from requests.exceptions import HTTPError
+from requests.exceptions import HTTPError, ConnectionError
 from unittest import mock
 from urllib3.exceptions import ConnectTimeoutError
 
