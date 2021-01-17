@@ -1,19 +1,18 @@
 import logging
 import requests
 
-from requests.exceptions import HTTPError
-from requests.exceptions import InvalidSchema
+from requests.exceptions import HTTPError, InvalidSchema, ConnectionError
 from urllib3.exceptions import (MaxRetryError, NewConnectionError,
-                                ConnectTimeoutError)
+                                ConnectTimeoutError, ResponseError)
 
 
 def try_load_url(url):
     try:
         response = requests.get(url)
-    except (NewConnectionError, MaxRetryError,
-            ConnectTimeoutError, ConnectionRefusedError) as error:
+    except (NewConnectionError, MaxRetryError, ResponseError,
+            ConnectTimeoutError, ConnectionRefusedError, ConnectionError):
         logging.error('ConnectionError')
-        raise ConnectionError('ConnectionError:')
+        raise ConnectionError('ConnectionError')
     except InvalidSchema:
         logging.error('InvalidSchema')
         raise InvalidSchema("ConnectionError: Invalid url")
