@@ -19,7 +19,8 @@ def load_resources(sources, path):
             logging.error(error)
             print(f'Cannot open {source}')
             continue
-        response.encoding('Unicode')
+        if response.text:
+            response.encoding('Unicode')
         create_file(path, name, response.text)
     bar.update()
 
