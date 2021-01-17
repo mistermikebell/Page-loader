@@ -13,7 +13,7 @@ def try_load_url(url):
     except (NewConnectionError, MaxRetryError,
             ConnectTimeoutError, ConnectionRefusedError) as error:
         logging.error('ConnectionError')
-        raise ConnectionError('ConnectionError:', error)
+        raise ConnectionError('ConnectionError:')
     except InvalidSchema:
         logging.error('InvalidSchema')
         raise InvalidSchema("ConnectionError: Invalid url")

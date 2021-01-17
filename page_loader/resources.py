@@ -16,7 +16,6 @@ def modify_and_get_resources(url, path, content):
             source = tag.get(attribute)
         if not source:
             continue
-        print("SOURCE", source)
         if not urlparse(source).netloc:
             source.strip('/')
             source = urljoin(url, source)
