@@ -25,7 +25,7 @@ def create_file(path, name, content):
         raise FileNotFoundError
     except PermissionError:
         logging.error('PermissionError')
-        raise OSError(f'Cannot save in {path}: Read-only file system')
+        raise PermissionError(f'Cannot save in {path}: Read-only file system')
     except OSError:
         logging.error('OSError')
         raise OSError(f'Cannot find {path}.')

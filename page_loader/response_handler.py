@@ -1,7 +1,7 @@
 import logging
 import requests
 
-from requests import HTTPError
+from requests.exceptions import HTTPError
 from requests.exceptions import InvalidSchema
 from urllib3.exceptions import (MaxRetryError, NewConnectionError,
                                 ConnectTimeoutError)
@@ -21,5 +21,5 @@ def try_load_url(url):
         response.raise_for_status()
     except Exception:
         logging.error(Exception)
-        raise print(f'Status code is {response.status_code}', HTTPError)
+        raise HTTPError(f'Status code is {response.status_code}')
     return response
