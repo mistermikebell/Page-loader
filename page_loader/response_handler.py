@@ -12,7 +12,7 @@ def try_load_url(url):
         response = requests.get(url)
     except (NewConnectionError, MaxRetryError,
             ConnectTimeoutError, ConnectionRefusedError) as error:
-        logging.error(error)
+        logging.error('ConnectionError')
         raise ConnectionError('ConnectionError:', error)
     except InvalidSchema:
         logging.error('InvalidSchema')
@@ -20,6 +20,6 @@ def try_load_url(url):
     try:
         response.raise_for_status()
     except Exception:
-        logging.error(Exception)
+        logging.error(f'Status code is {response.status_code}')
         raise HTTPError(f'Status code is {response.status_code}')
     return response
