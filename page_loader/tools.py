@@ -19,6 +19,13 @@ def create_file(path, name, content):
     try:
         with open(full_path, 'w') as content_file:
             content_file.write(content)
+    except NotADirectoryError:
+        raise NotADirectoryError
+    except FileNotFoundError:
+        raise FileNotFoundError
     except PermissionError:
         logging.error('PermissionError')
-        raise PermissionError('Cannot create file:')
+        raise OSError(f'Cannot save in {path}: Read-only file system')
+    except OSError:
+        logging.error('OSError')
+        raise OSError(f'Cannot find {path}.')

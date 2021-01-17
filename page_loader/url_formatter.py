@@ -1,6 +1,6 @@
 import re
 
-from os.path import splitext, basename, join
+from os.path import splitext, join
 from urllib.parse import urlparse
 
 
@@ -15,8 +15,7 @@ def to_directory_name(path, name):
 
 
 def to_file_name_with_extension(url):
-    parsed = urlparse(url)
-    short_path, extension = splitext(basename(parsed.path))
-    long_path = join(parsed.netloc, short_path)
-    formatted_url = to_file_name(long_path)
+    path, extension = splitext(url)
+    print("SHORT PATH", path)
+    formatted_url = to_file_name(path)
     return f'{formatted_url}{extension}'

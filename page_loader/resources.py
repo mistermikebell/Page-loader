@@ -1,12 +1,7 @@
 from urllib.parse import urljoin
-
+from bs4 import BeautifulSoup
 from page_loader import url_formatter
 from urllib.parse import urlparse
-from bs4 import BeautifulSoup
-
-
-def is_absolute(url):
-    return bool(urlparse(url).netloc)
 
 
 def modify_and_get_resources(url, path, content):
@@ -21,9 +16,12 @@ def modify_and_get_resources(url, path, content):
             source = tag.get(attribute)
         if not source:
             continue
-        if not is_absolute(source):
+        print("SOURCE", source)
+        if not urlparse(source).netloc:
             source.strip('/')
             source = urljoin(url, source)
+        if urlparse(url).netloc != urlparse(source).netloc:
+            continue
         formatted_name = url_formatter.to_file_name_with_extension(source)
         sources[source] = formatted_name
         tag[attribute] = url_formatter.to_directory_name(path, formatted_name)

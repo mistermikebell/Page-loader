@@ -24,9 +24,6 @@ def load_resources(sources, path):
 
 
 def download(url, path):
-    if not os.path.exists(path):
-        logging.error('OSError')
-        raise OSError(f'{path} doesn\'t exist')
     logging.info("Send GET request")
     logging.info(f'\nConnecting to {url} ...\n')
     response = try_load_url(url)

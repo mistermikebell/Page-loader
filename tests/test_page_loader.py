@@ -30,9 +30,7 @@ def test_load_html(requests_mock):
                'https://www.site.com/themes/min.js':
                './tests/fixtures/min.js',
                'http://www.site.com/files/img1.png':
-               './tests/fixtures/img1.png',
-               'http://www.anothersite.com/files/img2.png':
-               './tests/fixtures/img2.png'
+               './tests/fixtures/img1.png'
                }
     for source, content in sources.items():
         requests_mock.get(source, content=open_and_read(content).encode())
