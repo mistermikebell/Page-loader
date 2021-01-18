@@ -8,7 +8,7 @@ from page_loader.logging import setup
 def main():
     args = get_parse_args()
     try:
-        setup(log_level="ERROR", filename="debug.log")
+        setup(log_level='DEBUG', filename='debug.log')
         file_path = download(args.url, args.output)
         print('\nHTML file is successfully downloaded to\n', file_path)
     except Exception:
