@@ -23,6 +23,6 @@ def get_parse_args():
         '-l',
         '--log-level',
         type=str,
-        default=2,
-        help='Set a level of logging. Default is INFO')
+        default='ERROR',
+        help='Set a level of logging. Default is ERROR')
     return parser.parse_args()

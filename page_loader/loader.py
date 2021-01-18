@@ -24,10 +24,10 @@ def load_resources(sources, path):
 
 
 def download(url, path):
-    logging.info("Send GET request")
-    logging.info(f'\nConnecting to {url} ...\n')
+    print("Send GET request")
+    print(f'\nConnecting to {url} ...\n')
     response = try_load_url(url)
-    logging.info('Connection established\n\nStarting to load content\n')
+    print('Connection established\n\nStarting to load content\n')
 
     formatted_url = url_formatter.to_file_name(url)
     resources_directory_name = f'{formatted_url}_files'
