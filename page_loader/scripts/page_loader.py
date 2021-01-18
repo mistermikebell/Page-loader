@@ -8,12 +8,12 @@ from page_loader.logging import setup
 def main():
     args = get_parse_args()
     try:
-        file_path = download(args.url, args.output)
         setup(log_level=args.log_level, log_file=args.log_file)
+        file_path = download(args.url, args.output)
         print('\nHTML file is successfully downloaded to\n', file_path)
-    except Exception:
-        print("CATCHED EXCEPTION IN SCRIPTS!")
         sys.exit(0)
+    except Exception:
+        sys.exit(1)
 
 
 if __name__ == '__main__':
