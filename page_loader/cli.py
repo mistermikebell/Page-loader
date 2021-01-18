@@ -16,7 +16,7 @@ def get_parse_args():
         '-f',
         '--file',
         type=str,
-        default='no file',
+        default=None,
         help='Set a directory where to save a log file. '
              'If empty then logging will be switched off')
     parser.add_argument(
