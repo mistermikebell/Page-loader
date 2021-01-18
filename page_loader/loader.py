@@ -6,8 +6,8 @@ from page_loader import url_formatter
 from page_loader.resources import modify_and_get_resources
 from page_loader.tools import create_file, create_directory
 from page_loader.response_handler import try_load_url
-from page_loader.logging import setup
-setup(log_level='DEBUG', filename='debug.log')
+
+
 def load_resources(sources, path):
     bar = progressbar.ProgressBar(max_value=len(sources),
                                   redirect_stdout=True).start()
