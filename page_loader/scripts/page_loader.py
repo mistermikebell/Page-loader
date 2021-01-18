@@ -1,4 +1,5 @@
 import sys
+import logging
 
 from page_loader.cli import get_parse_args
 from page_loader import download
@@ -11,7 +12,8 @@ def main():
         setup(log_level='DEBUG', filename='debug.log')
         file_path = download(args.url, args.output)
         print('\nHTML file is successfully downloaded to\n', file_path)
-    except Exception:
+    except Exception as e:
+        logging.error(str(e))
         sys.exit(1)
 
 
