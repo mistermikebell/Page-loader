@@ -19,7 +19,7 @@ def load_resources(sources, path):
             logging.error(error)
             print(f'Cannot open {source}')
             continue
-        create_file(path, name, response.text)
+        create_file(path, name, response.content)
     bar.update()
 
 

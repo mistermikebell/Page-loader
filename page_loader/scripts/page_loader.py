@@ -12,6 +12,7 @@ def main():
         setup(log_level=args.log_level, log_file=args.log_file)
         print('\nHTML file is successfully downloaded to\n', file_path)
     except Exception:
+        print("CATCHED EXCEPTION IN SCRIPTS!")
         sys.exit(1)
 
 

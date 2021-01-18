@@ -17,7 +17,7 @@ def create_directory(path, name):
 def create_file(path, name, content):
     full_path = to_directory_name(path, name)
     try:
-        with open(full_path, 'w',  encoding='utf-8') as content_file:
+        with open(full_path, 'wb') as content_file:
             content_file.write(content)
     except NotADirectoryError:
         logging.error('Not a directory')
