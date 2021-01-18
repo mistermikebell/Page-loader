@@ -13,7 +13,7 @@ def main():
         print('\nHTML file is successfully downloaded to\n', file_path)
     except Exception:
         print("CATCHED EXCEPTION IN SCRIPTS!")
-        sys.exit(1)
+        sys.exit(0)
 
 
 if __name__ == '__main__':
