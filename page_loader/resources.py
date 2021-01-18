@@ -24,4 +24,4 @@ def modify_and_get_resources(url, path, content):
         formatted_name = url_formatter.to_file_name_with_extension(source)
         sources[source] = formatted_name
         tag[attribute] = url_formatter.to_directory_name(path, formatted_name)
-    return soup.prettify(formatter='html5'), sources
+    return soup.prettify(formatter='html5').encode(), sources
