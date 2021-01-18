@@ -9,12 +9,12 @@ from page_loader.logging import setup
 def main():
     args = get_parse_args()
     #setup(log_level='ERROR')
-    try:
-        file_path = download(args.url, args.output)
-        print('\nHTML file is successfully downloaded to\n', file_path)
-    except Exception as e:
-        logging.error(e)
-        sys.exit(1)
+    #try:
+    file_path = download(args.url, args.output)
+    print('\nHTML file is successfully downloaded to\n', file_path)
+    #except Exception as e:
+    #logging.error(e)
+    #sys.exit(1)
 
 
 if __name__ == '__main__':
