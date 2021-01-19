@@ -8,3 +8,10 @@ def setup(log_level, **kwargs):
                         format=FORMAT,
                         **kwargs
                         )
+
+
+console = logging.StreamHandler()
+console.setLevel(logging.ERROR)
+formatter = logging.Formatter('%(message)s')
+console.setFormatter(formatter)
+logging.getLogger("").addHandler(console)

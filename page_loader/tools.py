@@ -21,13 +21,13 @@ def create_file(path, name, content):
             content_file.write(content)
     except NotADirectoryError:
         logging.error('Not a directory')
-        raise NotADirectoryError('Not a directory')
+        raise NotADirectoryError
     except FileNotFoundError:
         logging.error('No such file or directory')
-        raise FileNotFoundError('No such file or directory')
+        raise FileNotFoundError
     except PermissionError:
         logging.error(f'Cannot save in {path}: Read-only file system')
-        raise PermissionError(f'Cannot save in {path}: Read-only file system')
+        raise PermissionError
     except OSError:
         logging.error('OSError: Read-only file system')
-        raise OSError(f'Cannot find {path}. Read-only file system')
+        raise OSError
