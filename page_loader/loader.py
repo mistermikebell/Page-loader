@@ -32,8 +32,8 @@ def download(url, path):
     formatted_url = url_formatter.to_file_name(url)
     resources_directory_name = f'{formatted_url}_files'
     modified_html, resources_list = modify_and_get_resources(
-                                        url, resources_directory_name,
-                                        response.content)
+        url, resources_directory_name,
+        response.content)
     html_file_name = f'{formatted_url}.html'
     html_file_path = url_formatter.to_directory_name(path, html_file_name)
     create_file(path, html_file_name, modified_html)
