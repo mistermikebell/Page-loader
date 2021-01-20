@@ -1,6 +1,6 @@
 import logging
 
-FORMAT = '%(asctime)s %(name)s %(levelname)s:%(message)s'
+FORMAT = '%(message)s'
 
 
 def setup(log_level, **kwargs):
@@ -8,10 +8,3 @@ def setup(log_level, **kwargs):
                         format=FORMAT,
                         **kwargs
                         )
-
-
-console = logging.StreamHandler()
-console.setLevel(logging.ERROR)
-formatter = logging.Formatter('%(message)s')
-console.setFormatter(formatter)
-logging.getLogger("").addHandler(console)

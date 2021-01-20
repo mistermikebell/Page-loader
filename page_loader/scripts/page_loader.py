@@ -2,12 +2,12 @@ import sys
 
 from page_loader.cli import get_parse_args
 from page_loader import download
-from page_loader import logging
+from page_loader.logging import setup
 
 
 def main():
     args = get_parse_args()
-    logging.setup(log_level='ERROR', filename='tests/debug.log')
+    setup(log_level=args.log_level, filename=args.file)
     try:
         file_path = download(args.url, args.output)
         print('\nHTML file is successfully downloaded to\n', file_path)

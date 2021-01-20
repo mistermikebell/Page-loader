@@ -20,7 +20,7 @@ def create_file(path, name, content):
         with open(full_path, 'wb') as content_file:
             content_file.write(content)
     except NotADirectoryError:
-        logging.error('Not a directory')
+        logging.error(f' {path} is Not a directory')
         raise NotADirectoryError
     except FileNotFoundError:
         logging.error('No such file or directory')

@@ -1,4 +1,3 @@
-import logging
 import os
 import progressbar
 
@@ -15,8 +14,7 @@ def load_resources(sources, path):
         print(source)
         try:
             response = try_load_url(source)
-        except Exception as error:
-            logging.error(error)
+        except Exception:
             print(f'Cannot open {source}')
             continue
         create_file(path, name, response.content)
