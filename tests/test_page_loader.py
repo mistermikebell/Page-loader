@@ -4,7 +4,7 @@ import tempfile
 
 from os.path import abspath, join
 from page_loader import download
-from requests.exceptions import HTTPError, ConnectionError
+from requests.exceptions import HTTPError, ConnectionError, InvalidSchema
 from unittest import mock
 from urllib3.exceptions import ConnectTimeoutError
 
@@ -47,7 +47,11 @@ def test_load_html(requests_mock):
         assert result_files_list == expected_files_list
 
 
-@pytest.mark.parametrize('exc', [OSError, PermissionError])
+IO_EXCEPTIONS = [OSError, PermissionError,
+                 NotADirectoryError, FileNotFoundError]
+
+
+@pytest.mark.parametrize('exc', IO_EXCEPTIONS)
 def test_directory_does_not_exist(requests_mock, exc):
     requests_mock.get(URL)
     with mock.patch('page_loader.tools.open') as mocker:
@@ -64,11 +68,13 @@ def test_status_codes(requests_mock, status):
         download(URL, './tests/')
 
 
-URL_EXCEPTIONS = [ConnectTimeoutError, ConnectionRefusedError]
-
-
-@pytest.mark.parametrize('exception', URL_EXCEPTIONS)
-def test_url_exceptions(requests_mock, exception):
-    requests_mock.get(URL, exc=exception)
+def test_url_exceptions(requests_mock):
+    requests_mock.get(URL, exc=ConnectTimeoutError)
     with pytest.raises(ConnectionError):
+        download(URL, './tests/')
+    requests_mock.get(URL, exc=ConnectionRefusedError)
+    with pytest.raises(ConnectionError):
+        download(URL, './tests/')
+    requests_mock.get(URL, exc=InvalidSchema)
+    with pytest.raises(InvalidSchema):
         download(URL, './tests/')
