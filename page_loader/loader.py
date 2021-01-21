@@ -9,16 +9,20 @@ from page_loader.response_handler import try_load_url
 
 def load_resources(sources, path):
     bar = progressbar.ProgressBar(max_value=len(sources),
-                                  redirect_stdout=True).start()
+                                  redirect_stdout=True)
+    bar_step = 0
     for source, name in sources.items():
         print(source)
         try:
             response = try_load_url(source)
         except Exception:
             print(f'Cannot open {source}')
+            bar_step += 1
             continue
         create_file(path, name, response.content)
-    bar.update()
+        bar_step += 1
+        bar.update(bar_step)
+    bar.finish()
 
 
 def download(url, path):
