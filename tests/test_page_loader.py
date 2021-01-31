@@ -5,7 +5,6 @@ import tempfile
 from os.path import abspath, join
 from page_loader import download, url_formatter
 from requests.exceptions import HTTPError
-from unittest import mock
 
 URL = 'https://www.site.com'
 
@@ -35,6 +34,8 @@ SOURCES = {
 def test_load_html(requests_mock):
     for source, content in SOURCES.items():
         requests_mock.get(source, content=read_file(content))
+    unavlbl_url = "http://www.site.com/files/img3.png"
+    requests_mock.get(unavlbl_url, content=read_file(content), status_code=404)
     with tempfile.TemporaryDirectory(dir='./tests/') as tmpdir:
         expected_path = abspath(join(tmpdir, 'www-site-com.html'))
         assert download(URL, tmpdir) == expected_path
@@ -50,18 +51,13 @@ def test_load_html(requests_mock):
         assert result_files_list == expected_files_list
 
 
-IO_EXCEPTIONS = [OSError, PermissionError,
-                 NotADirectoryError, FileNotFoundError]
-
-
-@pytest.mark.parametrize('exc', IO_EXCEPTIONS)
-def test_directory_does_not_exist(requests_mock, exc):
-    requests_mock.get(URL)
-    with mock.patch('page_loader.fs.open') as mocker:
-        mocker.side_effect = exc
-        with pytest.raises(exc):
-            with tempfile.TemporaryDirectory(dir='./tests/') as tmpdir:
-                download(URL, tmpdir)
+def test_io_errors():
+    with pytest.raises(NotADirectoryError):
+        download(URL, './tests/__init__.py')
+    with pytest.raises(FileNotFoundError):
+        download(URL, 'non_existing_path/')
+    with pytest.raises(PermissionError):
+        download(URL, '/sys')
 
 
 @pytest.mark.parametrize('status', [404, 500])
