@@ -1,22 +1,22 @@
 import re
+import os
 
-from os.path import splitext, join
 from urllib.parse import urlparse
+
+FORMAT_URL_PATTERN = re.compile(r'\_|[^\w\d]+')
 
 
 def to_file_name(url):
     parsed_url = urlparse(url)
-    no_scheme_url = (parsed_url.netloc + parsed_url.path)
-    return re.sub(r'[^\d\w]+', '-', no_scheme_url).strip('-')
-
-
-def to_directory_name(path, name):
-    return join(path, name)
-
-
-def to_file_name_with_extension(url):
-    path, extension = splitext(url)
+    path, extension = os.path.splitext(parsed_url.path)
     if extension == '':
         extension = '.html'
-    formatted_url = to_file_name(path)
+    no_scheme_url = parsed_url.netloc + path
+    formatted_url = FORMAT_URL_PATTERN.sub('-', no_scheme_url).strip('-')
     return f'{formatted_url}{extension}'
+
+
+def to_directory_name(url):
+    formatted_url = to_file_name(url)
+    name = formatted_url.split('.')[0]
+    return f'{name}_files'

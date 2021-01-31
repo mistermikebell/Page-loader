@@ -1,6 +1,6 @@
 import logging
 
-FORMAT = '%(message)s'
+FORMAT = '%(asctime)s %(levelname)s: %(message)s'
 
 
 def setup(log_level, **kwargs):

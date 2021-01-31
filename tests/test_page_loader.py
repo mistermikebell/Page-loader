@@ -3,16 +3,15 @@ import pytest
 import tempfile
 
 from os.path import abspath, join
-from page_loader import download
-from requests.exceptions import HTTPError, ConnectionError, InvalidSchema
+from page_loader import download, url_formatter
+from requests.exceptions import HTTPError
 from unittest import mock
-from urllib3.exceptions import ConnectTimeoutError
 
 URL = 'https://www.site.com'
 
 
-def open_and_read(path):
-    with open(path) as file_for_read:
+def read_file(path):
+    with open(path, mode='rb') as file_for_read:
         return file_for_read.read()
 
 
@@ -23,20 +22,23 @@ def get_dir(path):
 
 
 def test_load_html(requests_mock):
-    sources = {'https://www.site.com':
-               './tests/fixtures/input-content.html',
-               'https://www.site.com/themes/style.css':
-               './tests/fixtures/style.css',
-               'https://www.site.com/themes/min.js':
-               './tests/fixtures/min.js',
-               'http://www.site.com/files/img1.png':
-               './tests/fixtures/img1.png'
+    sources = {
+        'https://www.site.com':
+        'fixtures/input-content.html',
+        'https://www.site.com/themes/style.css':
+        'fixtures/result/www-site-com_files/www-site-com-themes-style.css',
+        'https://www.site.com/themes/min.js':
+        'fixtures/result/www-site-com_files/www-site-com-themes-min.js',
+        'http://www.site.com/files/img1.png':
+        'fixtures/result/www-site-com_files/www-site-com-files-img1.png'
                }
     for source, content in sources.items():
-        requests_mock.get(source, content=open_and_read(content).encode())
+        requests_mock.get(source, content=read_file(content))
     with tempfile.TemporaryDirectory(dir='./tests/') as tmpdir:
         expected_path = abspath(join(tmpdir, 'www-site-com.html'))
         assert download(URL, tmpdir) == expected_path
+        expected_file = read_file('./tests/fixtures/result/www-site-com.html')
+        assert read_file(expected_path) == expected_file
         result_files = os.listdir(tmpdir)
         expected_files = os.listdir('./tests/fixtures/result')
         assert result_files == expected_files
@@ -54,7 +56,7 @@ IO_EXCEPTIONS = [OSError, PermissionError,
 @pytest.mark.parametrize('exc', IO_EXCEPTIONS)
 def test_directory_does_not_exist(requests_mock, exc):
     requests_mock.get(URL)
-    with mock.patch('page_loader.tools.open') as mocker:
+    with mock.patch('page_loader.fs.open') as mocker:
         mocker.side_effect = exc
         with pytest.raises(exc):
             with tempfile.TemporaryDirectory(dir='./tests/') as tmpdir:
@@ -62,19 +64,18 @@ def test_directory_does_not_exist(requests_mock, exc):
 
 
 @pytest.mark.parametrize('status', [404, 500])
-def test_status_codes(requests_mock, status):
+def test_response_errors(requests_mock, status):
     requests_mock.get(URL, status_code=status)
     with pytest.raises(HTTPError):
         download(URL, './tests/')
 
 
-def test_url_exceptions(requests_mock):
-    requests_mock.get(URL, exc=ConnectTimeoutError)
-    with pytest.raises(ConnectionError):
-        download(URL, './tests/')
-    requests_mock.get(URL, exc=ConnectionRefusedError)
-    with pytest.raises(ConnectionError):
-        download(URL, './tests/')
-    requests_mock.get(URL, exc=InvalidSchema)
-    with pytest.raises(InvalidSchema):
-        download(URL, './tests/')
+FORMATTED_URLS = {'https://www.s--te.com//': 'www-s-te-com.html',
+                  'https://go_r.org/sth.html': 'go-r-org-sth.html',
+                  'https://what.net/sfs?df%df12&sd': 'what-net-sfs.html'}
+
+
+@pytest.mark.parametrize('input, expected_output', FORMATTED_URLS.items())
+def test_url_formatting(input, expected_output):
+    result = url_formatter.to_file_name(input)
+    assert result == expected_output

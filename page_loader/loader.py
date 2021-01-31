@@ -1,45 +1,44 @@
+import logging
 import os
 import progressbar
 
 from page_loader import url_formatter
-from page_loader.resources import modify_and_get_resources
-from page_loader.tools import create_file, create_directory
-from page_loader.response_handler import try_load_url
+from page_loader.resources import process_html
+from page_loader.fs import create_file, create_directory
+from page_loader.connector import do_request
 
 
-def load_resources(sources, path):
+def load_resources(path, url, sources):
+    dir_name = url_formatter.to_directory_name(url)
+    logging.debug(f'The directory name is {dir_name}')
+    dir_path = os.path.join(path, dir_name)
+    create_directory(dir_path)
+    logging.debug(len(sources))
     bar = progressbar.ProgressBar(max_value=len(sources),
                                   redirect_stdout=True)
     bar_step = 0
     for source, name in sources.items():
-        print(source)
+        logging.info(f'load {source}')
         try:
-            response = try_load_url(source)
-        except Exception:
-            print(f'Cannot open {source}')
+            response = do_request(source)
+        except Exception as er:
+            logging.warning(er)
             bar_step += 1
             continue
-        create_file(path, name, response.content)
+        create_file(dir_path, name, response.content)
         bar_step += 1
         bar.update(bar_step)
     bar.finish()
 
 
 def download(url, path):
-    print("Send GET request")
-    print(f'\nConnecting to {url} ...\n')
-    response = try_load_url(url)
-    print('Connection established\n\nStarting to load content\n')
-
-    formatted_url = url_formatter.to_file_name(url)
-    resources_directory_name = f'{formatted_url}_files'
-    modified_html, resources_list = modify_and_get_resources(
-        url, resources_directory_name,
-        response.content)
-    html_file_name = f'{formatted_url}.html'
-    html_file_path = url_formatter.to_directory_name(path, html_file_name)
-    create_file(path, html_file_name, modified_html)
-    resources_directory_path = create_directory(path,
-                                                resources_directory_name)
-    load_resources(resources_list, resources_directory_path)
-    return os.path.abspath(html_file_path)
+    print(f'Send GET request to {url}. The downloading might take time')
+    response = do_request(url)
+    logging.info('Connection established')
+    modified_html, resources = process_html(url, response.content)
+    abs_path = os.path.abspath(path)
+    html_file_name = url_formatter.to_file_name(url)
+    logging.debug(f'The HTML file name is {html_file_name}')
+    create_file(abs_path, html_file_name, modified_html.encode())
+    load_resources(abs_path, url, resources)
+    return os.path.join(abs_path, html_file_name)
