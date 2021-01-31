@@ -21,18 +21,20 @@ def get_dir(path):
     return os.path.join(path, dirs[0])
 
 
+SOURCES = {
+    'https://www.site.com':
+    './tests/fixtures/input-content.html',
+    'https://www.site.com/themes/style.css':
+    './tests/fixtures/result/www-site-com_files/www-site-com-themes-style.css',
+    'https://www.site.com/themes/min.js':
+    './tests/fixtures/result/www-site-com_files/www-site-com-themes-min.js',
+    'http://www.site.com/files/img1.png':
+    './tests/fixtures/result/www-site-com_files/www-site-com-files-img1.png'
+           }
+
+
 def test_load_html(requests_mock):
-    sources = {
-        'https://www.site.com':
-        'fixtures/input-content.html',
-        'https://www.site.com/themes/style.css':
-        'fixtures/result/www-site-com_files/www-site-com-themes-style.css',
-        'https://www.site.com/themes/min.js':
-        'fixtures/result/www-site-com_files/www-site-com-themes-min.js',
-        'http://www.site.com/files/img1.png':
-        'fixtures/result/www-site-com_files/www-site-com-files-img1.png'
-               }
-    for source, content in sources.items():
+    for source, content in SOURCES.items():
         requests_mock.get(source, content=read_file(content))
     with tempfile.TemporaryDirectory(dir='./tests/') as tmpdir:
         expected_path = abspath(join(tmpdir, 'www-site-com.html'))
