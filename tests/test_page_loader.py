@@ -29,8 +29,7 @@ SOURCES = {
     'https://www.site.com/themes/min.js':
     './tests/fixtures/result/www-site-com_files/www-site-com-themes-min.js',
     'http://www.site.com/files/img1.png':
-    './tests/fixtures/result/www-site-com_files/www-site-com-files-img1.png'
-           }
+    './tests/fixtures/result/www-site-com_files/www-site-com-files-img1.png'}
 
 
 def test_load_html(requests_mock):
