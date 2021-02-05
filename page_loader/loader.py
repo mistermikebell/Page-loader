@@ -1,45 +1,44 @@
 import logging
 import os
 import progressbar
+import requests
 
 from page_loader import url_formatter
 from page_loader.resources import process_html
 from page_loader import fs
-from page_loader.connector import do_request
+from page_loader import http
 
 
-def load_resources(path, url, sources):
+def load_resources(path, url, resources):
     dir_name = url_formatter.to_directory_name(url)
-    logging.debug(f'The directory name is {dir_name}')
+    logging.info(f'The directory name is {dir_name}')
     dir_path = os.path.join(path, dir_name)
     fs.create_directory(dir_path)
-    logging.debug(len(sources))
-    bar = progressbar.ProgressBar(max_value=len(sources),
+    bar = progressbar.ProgressBar(max_value=len(resources),
                                   redirect_stdout=True)
     bar_step = 0
-    for source, name in sources.items():
-        logging.info(f'load {source}')
+    for resource_url, resource_name in resources.items():
+        logging.info(f'load {resource_url}')
         try:
-            response = do_request(source)
-        except Exception as er:
+            response = http.get(resource_url)
+        except requests.exceptions.HTTPError as er:
             logging.warning(er)
             bar_step += 1
             continue
-        fs.create_file(dir_path, name, response.content)
+        fs.create_file(dir_path, resource_name, response.text)
         bar_step += 1
         bar.update(bar_step)
     bar.finish()
 
 
 def download(url, path):
-    fs.check_path(path)
-    print(f'Send GET request to {url}. The downloading might take time')
-    response = do_request(url)
-    logging.info('Connection established')
-    modified_html, resources = process_html(url, response.content)
     abs_path = os.path.abspath(path)
+    fs.check_path(path)
+    response = http.get(url)
+    logging.debug('Connection established')
+    modified_html, resources = process_html(url, response.content)
     html_file_name = url_formatter.to_file_name(url)
-    logging.debug(f'The HTML file name is {html_file_name}')
-    fs.create_file(abs_path, html_file_name, modified_html.encode())
+    logging.info(f'The HTML file name is {html_file_name}')
+    fs.create_file(abs_path, html_file_name, modified_html)
     load_resources(abs_path, url, resources)
     return os.path.join(abs_path, html_file_name)

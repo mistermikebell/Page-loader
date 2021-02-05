@@ -15,7 +15,7 @@ def process_html(url, content):
     dir_name = url_formatter.to_directory_name(url)
     soup = BeautifulSoup(content, features="html.parser")
     sources = {}
-    for tag in soup.find_all(['img', 'link', 'script']):
+    for tag in soup.find_all(TAG_ATTRIBUTES.keys()):
         attribute = TAG_ATTRIBUTES[tag.name]
         source = tag.get(attribute)
         if not source:

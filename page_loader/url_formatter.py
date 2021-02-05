@@ -3,7 +3,7 @@ import re
 
 from urllib.parse import urlparse
 
-FORMAT_URL_PATTERN = re.compile(r'\_|[^\w\d]+')
+FORMAT_URL_PATTERN = re.compile(r'_|[^\w\d]+')
 
 
 def to_file_name(url):
