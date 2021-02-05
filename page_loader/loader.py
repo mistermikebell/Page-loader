@@ -25,7 +25,7 @@ def load_resources(path, url, resources):
             logging.warning(er)
             bar_step += 1
             continue
-        fs.create_file(dir_path, resource_name, response.text)
+        fs.create_file(dir_path, resource_name, response.content)
         bar_step += 1
         bar.update(bar_step)
     bar.finish()

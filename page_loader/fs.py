@@ -17,5 +17,7 @@ def create_directory(path):
 
 def create_file(path, name, content):
     file_path = os.path.join(path, name)
+    if isinstance(content, str):
+        content = content.encode('utf-8')
     with open(file_path, 'wb') as content_file:
-        content_file.write(content.encode('utf-8'))
+        content_file.write(content)
