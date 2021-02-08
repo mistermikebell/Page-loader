@@ -12,12 +12,13 @@ def check_path(path):
 
 def create_directory(path):
     if not os.path.exists(path):
-        os.mkdir(path)
+        os.mkdir(path, mode=0o755)
 
 
 def create_file(path, name, content):
     file_path = os.path.join(path, name)
-    if isinstance(content, str):
-        content = content.encode('utf-8')
-    with open(file_path, 'wb') as content_file:
+    mode, encoding = (('w', 'utf8')
+                      if isinstance(content, str)
+                      else ('wb', None))
+    with open(file_path, mode=mode, encoding=encoding) as content_file:
         content_file.write(content)

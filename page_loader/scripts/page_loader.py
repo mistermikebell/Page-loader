@@ -14,7 +14,7 @@ def main():
         print('The webpage had been successfully downloaded to\n', file_path)
     except Exception as e:
         logging.error(str(e))
-        logging.debug(e, exc_info=True),
+        logging.debug(str(e), exc_info=True),
         sys.exit(1)
 
 
