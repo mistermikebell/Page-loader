@@ -1,6 +1,6 @@
 import logging
 import os
-import progressbar
+from progress.bar import Bar
 import requests
 
 from page_loader import url_formatter
@@ -14,21 +14,17 @@ def load_resources(path, url, resources):
     logging.info(f'The directory name is {dir_name}')
     dir_path = os.path.join(path, dir_name)
     fs.create_directory(dir_path)
-    bar = progressbar.ProgressBar(max_value=len(resources),
-                                  redirect_stdout=True)
-    bar_step = 0
-    for resource_url, resource_name in resources.items():
-        logging.info(f'load {resource_url}')
-        try:
-            response = http.get(resource_url)
-        except requests.exceptions.HTTPError as er:
-            logging.warning(er)
-            bar_step += 1
-            continue
-        fs.create_file(dir_path, resource_name, response.content)
-        bar_step += 1
-        bar.update(bar_step)
-    bar.finish()
+    with Bar('Processing', max=len(resources)) as bar:
+        for resource_url, resource_name in resources.items():
+            logging.info(f'load {resource_url}')
+            try:
+                response = http.get(resource_url)
+            except requests.exceptions.RequestException as er:
+                logging.warning(er)
+                bar.next()
+                continue
+            fs.create_file(dir_path, resource_name, response.content)
+            bar.next()
 
 
 def download(url, path):
