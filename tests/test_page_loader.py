@@ -21,8 +21,10 @@ SOURCES = [
      './tests/fixtures/result/www-site-com_files/www-site-com-themes-style.css'),  # noqa: E501
     ('https://www.site.com/themes/min.js',
      './tests/fixtures/result/www-site-com_files/www-site-com-themes-min.js'),
-    ('http://www.site.com/files/img1.png',
-     './tests/fixtures/result/www-site-com_files/www-site-com-files-img1.png')]
+    ('http://www.site.com/files/img1.jpg',
+     './tests/fixtures/result/www-site-com_files/www-site-com-files-img1.jpg')]
+
+EXPECTED_DIRECTORY = './tests/fixtures/result/www-site-com_files'
 
 
 def test_load_html(requests_mock):
@@ -31,15 +33,21 @@ def test_load_html(requests_mock):
     unavlbl_url = "http://www.site.com/files/img3.png"
     requests_mock.get(unavlbl_url, status_code=404)
     with tempfile.TemporaryDirectory(dir='./tests/') as tmpdir:
-        expected_path = abspath(join(tmpdir, 'www-site-com.html'))
-        assert download(URL, tmpdir) == expected_path
+        actual_path = abspath(join(tmpdir, 'www-site-com.html'))
+        assert download(URL, tmpdir) == actual_path
         expected_file = read_file('./tests/fixtures/result/www-site-com.html')
-        assert read_file(expected_path) == expected_file
+        assert read_file(actual_path) == expected_file
         result_dir = os.path.join(tmpdir, 'www-site-com_files')
         result_files_list = os.listdir(result_dir)
-        expected_files_list = os.listdir('./tests/fixtures/result/'
-                                         'www-site-com_files')
+        expected_files_list = os.listdir(EXPECTED_DIRECTORY)
         assert result_files_list == expected_files_list
+        for i in range(len(result_files_list)):
+            result_content = read_file(os.path.join(result_dir,
+                                                    result_files_list[i]))
+            expected_content = read_file(os.path.join(EXPECTED_DIRECTORY,
+                                                      expected_files_list[i]))
+            assert result_content == expected_content
+
 
 
 def test_io_errors():

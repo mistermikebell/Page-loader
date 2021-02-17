@@ -27,7 +27,7 @@ def load_resources(path, url, resources):
             bar.next()
 
 
-def download(url, path):
+def download(url, path=os.getcwd()):
     abs_path = os.path.abspath(path)
     fs.check_path(path)
     response = http.get(url)
